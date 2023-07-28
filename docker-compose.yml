@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    server:
+        image: nginx:latest
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/conf.d:/etc/nginx/conf.d
+        ports:
+            - '8007:80'
+        depends_on:
+            - app
+        container_name: app_server
+
+    app:
+        build:
+            context: .
+            dockerfile: docker/app/Dockerfile
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - db
+        container_name: app
+
+    db:
+        image: mysql:latest
+        restart: always
+        volumes:
+            - ./tmp/db:/var/lib/mysql
+        ports:
+            - '8877:3306'
+        environment:
+            MYSQL_DATABASE: shop_db
+            MYSQL_ROOT_PASSWORD: root
+        container_name: app_db
