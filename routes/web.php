@@ -15,6 +15,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::patch('/{category}', 'UpdateController')->name('categories.update');
         Route::get('/{category}/edit', 'EditController')->name('categories.edit');
         Route::delete('/{category}', 'DestroyController')->name('categories.destroy');
-        Route::get('/{category}/restore', 'RestoreController')->name('categories.restore');
+        Route::get('/{category}/restore', 'RestoreController')->withTrashed()->name('categories.restore');
     });
 });

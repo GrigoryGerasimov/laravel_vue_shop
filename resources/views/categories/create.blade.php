@@ -24,16 +24,22 @@
         <form action='{{ route('categories.store') }}' method='POST' enctype='application/x-www-form-urlencoded'>
             @csrf
 
-            <div class='input-group my-5 w-50'>
-                <div class='input-group-prepend'>
+            <div class='my-5'>
+                <div class='input-group w-50'>
+                    <div class='input-group-prepend'>
                     <span class='input-group-text'>
                         <i class="fas fa-th-list"></i>
                     </span>
+                    </div>
+                    <input class='form-control @error('title') is-invalid @enderror' id='title' name='title'
+                           value='{{ old('title') }}' placeholder='Category Title'/>
                 </div>
-                <input class='form-control' id='title' name='title' value='{{ old('title') }}' placeholder='Category Title'/>
+                @error('title')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
             </div>
 
-            <button type='submit' class='btn btn-outline-success mt-3'>Create</button>
+            <button type='submit' class='btn btn-light mt-3'>Create</button>
         </form>
     </section>
 @endsection

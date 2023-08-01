@@ -3,12 +3,19 @@
 namespace App\Http\Controllers\Category;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Category;
+use Illuminate\Http\RedirectResponse;
 
 class RestoreController extends Controller
 {
-    public function __invoke()
+    /**
+     * @param Category $category
+     * @return RedirectResponse
+     */
+    public function __invoke(Category $category): RedirectResponse
     {
+        $isRestored = $category->restore();
 
+        return $isRestored ? redirect()->route('categories.show', $category) : redirect()->back();
     }
 }
