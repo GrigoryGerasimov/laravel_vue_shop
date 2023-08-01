@@ -32,7 +32,7 @@
                     </span>
                     </div>
                     <input class='form-control @error('title') is-invalid @enderror' id='title' name='title'
-                           value='{{ old('title') }}' placeholder='Category Title'/>
+                           value='{{ old('title') }}' placeholder='title'/>
                 </div>
                 @error('title')
                 <p class='text-danger mt-3'>{{ $message }}</p>

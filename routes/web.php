@@ -17,4 +17,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::delete('/{category}', 'DestroyController')->name('categories.destroy');
         Route::get('/{category}/restore', 'RestoreController')->withTrashed()->name('categories.restore');
     });
+
+    Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
+        Route::get('/', 'IndexController')->name('tags.index');
+        Route::get('/create', 'CreateController')->name('tags.create');
+        Route::post('/', 'StoreController')->name('tags.store');
+        Route::get('/{tag}', 'ShowController')->name('tags.show');
+        Route::patch('/{tag}', 'UpdateController')->name('tags.update');
+        Route::get('/{tag}/edit', 'EditController')->name('tags.edit');
+        Route::delete('/{tag}', 'DestroyController')->name('tags.destroy');
+        Route::get('/{tag}/restore', 'RestoreController')->withTrashed()->name('tags.restore');
+    });
 });
