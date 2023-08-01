@@ -3,12 +3,18 @@
 namespace App\Http\Controllers\Category;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Category\UpdateRequest;
+use App\Models\Category;
+use Illuminate\View\View;
 
 class EditController extends Controller
 {
-    public function __invoke()
+    /**
+     * @param Category $category
+     * @return View
+     */
+    public function __invoke(Category $category): View
     {
-
+        return view('categories.edit', compact('category'));
     }
 }

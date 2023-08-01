@@ -73,8 +73,11 @@
                                        class="text-dark">Edit</a>
                                 </td>
                                 <td class="jsgrid-cell" style="width: 10%; text-align: center">
-                                    <a href="{{ route('categories.destroy', $category) }}"
-                                       class="text-dark">Delete</a>
+                                    <form action="{{ route('categories.destroy', $category) }}" method="POST" enctype="application/x-www-form-urlencoded">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn bg-transparent border-0">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
 
