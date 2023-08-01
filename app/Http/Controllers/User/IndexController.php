@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Main;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -15,6 +15,6 @@ class IndexController extends Controller
     {
         $usersList = User::all();
 
-        return view('main.index', compact('usersList'));
+        return view('users.index', compact('usersList'));
     }
 }
