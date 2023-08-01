@@ -39,4 +39,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::delete('/{color}', 'DestroyController')->name('colors.destroy');
         Route::get('/{color}/restore', 'RestoreController')->withTrashed()->name('colors.restore');
     });
+
+    Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
+        Route::get('/', 'IndexController')->name('users.index');
+        Route::get('/create', 'CreateController')->name('users.create');
+        Route::post('/', 'StoreController')->name('users.store');
+        Route::get('/{user}', 'ShowController')->name('users.show');
+        Route::patch('/{user}', 'UpdateController')->name('users.update');
+        Route::get('/{user}/edit', 'EditController')->name('users.edit');
+        Route::delete('/{user}', 'DestroyController')->name('users.destroy');
+        Route::get('/{user}/restore', 'RestoreController')->withTrashed()->name('users.restore');
+    });
 });

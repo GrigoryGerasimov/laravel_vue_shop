@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Country;
+use App\Models\Gender;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +14,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        Gender::create([
+            'title' => 'male',
+            'slug' => 'm'
+        ]);
+        Gender::create([
+            'title' => 'female',
+            'slug' => 'f'
+        ]);
+        Gender::create([
+            'title' => 'other',
+            'slug' => 'o'
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Country::create([
+            'title' => 'Germany',
+            'iso_alpha_2' => 'DE'
+        ]);
+        Country::create([
+            'title' => 'Great Britain',
+            'iso_alpha_2' => 'GB'
+        ]);
+        Country::create([
+            'title' => 'France',
+            'iso_alpha_2' => 'FR'
+        ]);
     }
 }
