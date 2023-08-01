@@ -25,13 +25,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
+                    <a href="{{ route('tags.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-tags"></i>
                         <p>Tags</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
+                    <a href="{{ route('colors.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-palette"></i>
                         <p>Colors</p>
                     </a>
