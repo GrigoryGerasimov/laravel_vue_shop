@@ -14,7 +14,7 @@
                             <li class="breadcrumb-item">
                                 <a class="text-dark" href="{{ route('admin.index') }}">Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Category #{{ $category->id }}</li>
+                            <li class="breadcrumb-item active">Category ID {{ $category->id }}</li>
                         </ol>
                     </div>
                 </div>
@@ -32,16 +32,16 @@
                     <div class="jsgrid-grid-header">
                         <table class="jsgrid-table" style="width: 100%">
                             <tr class="jsgrid-header-row">
-                                <th class="jsgrid-header-cell" style="width: 20%;">
+                                <th class="jsgrid-header-cell text-sm" style="width: 20%;">
                                     ID
                                 </th>
-                                <th class="jsgrid-header-cell" style="width: 20%;">
+                                <th class="jsgrid-header-cell text-sm" style="width: 20%;">
                                     Title
                                 </th>
-                                <th class="jsgrid-header-cell" style="width: 20%;">
+                                <th class="jsgrid-header-cell text-sm" style="width: 20%;">
                                     Created At
                                 </th>
-                                <th class="jsgrid-header-cell" style="width: 20%;">
+                                <th class="jsgrid-header-cell text-sm" style="width: 20%;">
                                     Updated At
                                 </th>
                                 <th colspan="2" class="jsgrid-header-cell" style="width: 20%">
@@ -56,23 +56,23 @@
                             <tbody>
 
                             <tr class="jsgrid-row">
-                                <td class="jsgrid-cell" style="width: 20%;">
+                                <td class="jsgrid-cell text-sm" style="width: 20%;">
                                     {{ $category->id }}
                                 </td>
-                                <td class="jsgrid-cell" style="width: 20%;">
+                                <td class="jsgrid-cell text-sm" style="width: 20%;">
                                     {{ $category->title }}
                                 </td>
-                                <td class="jsgrid-cell" style="width: 20%;">
+                                <td class="jsgrid-cell text-sm" style="width: 20%;">
                                     {{ $category->created_at }}
                                 </td>
-                                <td class="jsgrid-cell" style="width: 20%;">
+                                <td class="jsgrid-cell text-sm" style="width: 20%;">
                                     {{ $category->updated_at }}
                                 </td>
-                                <td class="jsgrid-cell" style="width: 10%; text-align: center">
+                                <td class="jsgrid-cell text-sm" style="width: 10%; text-align: center">
                                     <a href="{{ route('categories.edit', $category) }}"
                                        class="text-dark">Edit</a>
                                 </td>
-                                <td class="jsgrid-cell" style="width: 10%; text-align: center">
+                                <td class="jsgrid-cell text-sm" style="width: 10%; text-align: center">
                                     <form action="{{ route('categories.destroy', $category) }}" method="POST" enctype="application/x-www-form-urlencoded">
                                         @csrf
                                         @method('delete')

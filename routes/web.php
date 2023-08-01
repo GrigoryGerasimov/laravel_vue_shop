@@ -28,4 +28,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::delete('/{tag}', 'DestroyController')->name('tags.destroy');
         Route::get('/{tag}/restore', 'RestoreController')->withTrashed()->name('tags.restore');
     });
+
+    Route::group(['namespace' => 'Color', 'prefix' => 'colors'], function () {
+        Route::get('/', 'IndexController')->name('colors.index');
+        Route::get('/create', 'CreateController')->name('colors.create');
+        Route::post('/', 'StoreController')->name('colors.store');
+        Route::get('/{color}', 'ShowController')->name('colors.show');
+        Route::patch('/{color}', 'UpdateController')->name('colors.update');
+        Route::get('/{color}/edit', 'EditController')->name('colors.edit');
+        Route::delete('/{color}', 'DestroyController')->name('colors.destroy');
+        Route::get('/{color}/restore', 'RestoreController')->withTrashed()->name('colors.restore');
+    });
 });

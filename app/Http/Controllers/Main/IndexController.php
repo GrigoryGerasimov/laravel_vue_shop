@@ -12,6 +12,6 @@ class IndexController extends Controller
      */
     public function __invoke(): View
     {
-        return view('layouts.main');
+        return view('main.index');
     }
 }
