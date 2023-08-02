@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'middle_name' => 'required|string',
             'last_name' => 'required|string',
             'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($this->route('user'))],
-            'password' => 'required|string|confirmed',
+            'password' => 'required|string',
             'age' => 'required|integer',
             'gender_id' => 'required|integer',
             'address_line_1' => 'required|string',

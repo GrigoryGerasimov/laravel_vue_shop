@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\{Country, Gender};
 use Illuminate\View\View;
 
 class CreateController extends Controller
@@ -12,6 +13,9 @@ class CreateController extends Controller
      */
     public function __invoke(): View
     {
-        return view('users.create');
+        $gendersList = Gender::all();
+        $countriesList = Country::all();
+
+        return view('users.create', compact('gendersList', 'countriesList'));
     }
 }
