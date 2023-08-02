@@ -2,58 +2,40 @@
 
 @section('content')
     <section class='content'>
-
-        <div class="card p-3">
+        <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Tags</h3>
             </div>
 
-            <div class="card-body">
-                <div id="jsGrid1" class="jsgrid" style="position: relative; height: 100%; width: 100%;">
-
+            <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
                     @if($tagsList->isNotEmpty())
-                        <div class="jsgrid-grid-header">
-                            <table class="jsgrid-table" style="width: 100%">
-                                <tr class="jsgrid-header-row">
-                                    <th class="jsgrid-header-cell" style="width: 30%;">
-                                        ID
-                                    </th>
-                                    <th class="jsgrid-header-cell" style="width: 30%;">
-                                        Title
-                                    </th>
-                                    <th class="jsgrid-header-cell" style="width: 40%">
-                                        &nbsp;
-                                    </th>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <div class="jsgrid-grid-body">
-                            <table class="jsgrid-table" style="width: 100%">
-                                <tbody>
-                                @foreach($tagsList as $tag)
-                                    <tr class="jsgrid-row">
-                                        <td class="jsgrid-cell" style="width: 30%;">
-                                            {{ $tag->id }}
-                                        </td>
-                                        <td class="jsgrid-cell" style="width: 30%;">
-                                            #{{ $tag->title }}
-                                        </td>
-                                        <td class="jsgrid-cell" style="width: 40%; text-align: center">
-                                            <a href="{{ route('tags.show', $tag) }}"
-                                               class="text-dark">Details</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                        <thead>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">Title</th>
+                            <th class="text-center"></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($tagsList as $tag)
+                            <tr>
+                                <td class="text-center">{{ $tag->id }}</td>
+                                <td class="text-center">#{{ $tag->title }}</td>
+                                <td class="text-center">
+                                    <a href="{{ route('tags.show', $tag) }}"
+                                       class="text-dark">Details</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     @endif
+                </table>
+            </div>
 
-                    <div>
-                        <a href="{{ route('tags.create') }}" class="btn btn-dark mt-5">New Tag</a>
-                    </div>
-                </div>
+            <div>
+                <a href="{{ route('tags.create') }}" class="btn btn-dark m-5">New Tag</a>
             </div>
         </div>
     </section>
