@@ -7,99 +7,77 @@
                 <div class="row mb-2">
                     <div class="col-sm-6" role="button">
                         <i class="fas fa-chevron-left"></i>
-                        <a href="{{ route('colors.index') }}" class="text-dark ml-1">Back</a>
+                        <a href="{{ route('users.index') }}" class="text-dark ml-1">Back</a>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">
                                 <a class="text-dark" href="{{ route('admin.index') }}">Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Color ID {{ $color->id }}</li>
+                            <li class="breadcrumb-item active">User ID {{ $user->id }}</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="card p-3">
+        <div class="card">
             <div class="card-header">
-                <h3 class="card-title">{{ $color->title }}</h3>
+                <h3 class="card-title">{{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</h3>
             </div>
 
-            <div class="card-body">
-                <div id="jsGrid1" class="jsgrid" style="position: relative; height: 100%; width: 100%;">
-
-                    <div class="jsgrid-grid-header">
-                        <table class="jsgrid-table" style="width: 100%">
-                            <tr class="jsgrid-header-row">
-                                <th class="jsgrid-header-cell text-sm" style="width: 13%;">
-                                    ID
-                                </th>
-                                <th class="jsgrid-header-cell text-sm" style="width: 13%;">
-                                    Title
-                                </th>
-                                <th class="jsgrid-header-cell text-sm" style="width: 13%;">
-                                    HEX
-                                </th>
-                                <th class="jsgrid-header-cell text-sm" style="width: 13%;">
-                                    Color
-                                </th>
-                                <th class="jsgrid-header-cell text-sm" style="width: 13%;">
-                                    Created At
-                                </th>
-                                <th class="jsgrid-header-cell text-sm" style="width: 13%;">
-                                    Updated At
-                                </th>
-                                <th colspan="2" class="jsgrid-header-cell" style="width: 26%">
-                                    &nbsp;
-                                </th>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="jsgrid-grid-body">
-                        <table class="jsgrid-table" style="width: 100%">
-                            <tbody>
-
-                            <tr class="jsgrid-row">
-                                <td class="jsgrid-cell text-sm" style="width: 13%;">
-                                    {{ $color->id }}
-                                </td>
-                                <td class="jsgrid-cell text-sm" style="width: 13%;">
-                                    {{ $color->title }}
-                                </td>
-                                <td class="jsgrid-cell text-sm" style="width: 13%;">
-                                    #{{ $color->hex }}
-                                </td>
-                                <td class="jsgrid-cell" style="width: 13%;">
-                                    <div style="width: 10px; height: 10px; background-color:#{{ $color->hex }}; border: 1px solid #4b545c"></div>
-                                </td>
-                                <td class="jsgrid-cell text-sm" style="width: 13%;">
-                                    {{ $color->created_at }}
-                                </td>
-                                <td class="jsgrid-cell text-sm" style="width: 13%;">
-                                    {{ $color->updated_at }}
-                                </td>
-                                <td class="jsgrid-cell" style="width: 13%; text-align: center">
-                                    <a href="{{ route('colors.edit', $color) }}"
-                                       class="text-dark text-sm">Edit</a>
-                                </td>
-                                <td class="jsgrid-cell" style="width: 13%; text-align: center">
-                                    <form action="{{ route('colors.destroy', $color) }}" method="POST" enctype="application/x-www-form-urlencoded">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn bg-transparent border-0 text-sm">
-                                            Delete
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
+            <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Password</th>
+                        <th class="text-center">Age</th>
+                        <th class="text-center">Gender</th>
+                        <th class="text-center">Delivery Address</th>
+                        <th class="text-center">Country</th>
+                        <th class="text-center">Created At</th>
+                        <th class="text-center">Updated At</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <td colspan="10">
+                            <div class="d-flex flex-row align-items-center mt-5">
+                                <a href="{{ route('users.edit', $user) }}"
+                                   class="text-dark mr-4">Edit</a>
+                                <form action="{{ route('users.destroy', $user) }}" method="POST"
+                                      enctype="application/x-www-form-urlencoded"
+                                >
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="m-0 p-0 btn bg-transparent border-0">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr>
+                        <td class="text-center">{{ $user->id }}</td>
+                        <td class="text-center">{{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</td>
+                        <td class="text-center">{{ $user->email }}</td>
+                        <td class="text-center">{{ substr($user->password, 0, 15) }}...</td>
+                        <td class="text-center">{{ $user->age }}</td>
+                        <td class="text-center">{{ $user->gender->title }}</td>
+                        <td class="text-center">{{ $user->address_line_1 }}, {{ $user->address_line_2 }}, {{ $user->street_number }}
+                            , {{ $user->unit_number }}, {{ $user->city }}, {{ $user->region }}
+                            , {{ $user->postal_code }}</td>
+                        <td class="text-center">{{ $user->country->title }}</td>
+                        <td class="text-center">{{ $user->created_at }}</td>
+                        <td class="text-center">{{ $user->updated_at }}</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>

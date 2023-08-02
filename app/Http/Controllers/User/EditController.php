@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\{Country, Gender, User};
 use Illuminate\View\View;
 
 class EditController extends Controller
@@ -14,6 +14,9 @@ class EditController extends Controller
      */
     public function __invoke(User $user): View
     {
-        return view('users.edit', compact('user'));
+        $gendersList = Gender::all();
+        $countriesList = Country::all();
+
+        return view('users.edit', compact('user', 'gendersList', 'countriesList'));
     }
 }

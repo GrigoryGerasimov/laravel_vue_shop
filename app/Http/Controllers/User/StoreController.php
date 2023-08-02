@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\{DB, Log};
+use Illuminate\Support\Facades\{DB, Hash, Log};
 
 class StoreController extends Controller
 {
@@ -21,6 +21,8 @@ class StoreController extends Controller
 
             $data = $request->validated();
 
+            $data['password'] = Hash::make($data['password']);
+
             $user = User::firstOrCreate(['email' => $data['email']], $data);
 
             DB::commit();
@@ -29,7 +31,6 @@ class StoreController extends Controller
 
             Log::error($err);
         }
-
 
         return isset($user) ? redirect()->route('users.index') : redirect()->back();
     }
