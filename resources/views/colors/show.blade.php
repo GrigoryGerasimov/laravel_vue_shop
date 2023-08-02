@@ -72,7 +72,7 @@
                                     #{{ $color->hex }}
                                 </td>
                                 <td class="jsgrid-cell" style="width: 13%;">
-                                    <div style="width: 10px; height: 10px; background-color:#{{ $color->hex }}"></div>
+                                    <div style="width: 10px; height: 10px; background-color:#{{ $color->hex }}; border: 1px solid #4b545c"></div>
                                 </td>
                                 <td class="jsgrid-cell text-sm" style="width: 13%;">
                                     {{ $color->created_at }}
