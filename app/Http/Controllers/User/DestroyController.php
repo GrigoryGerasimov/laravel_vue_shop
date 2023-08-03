@@ -18,6 +18,8 @@ class DestroyController extends Controller
         try {
             DB::beginTransaction();
 
+            $user->address->delete();
+
             $isDeleted = $user->delete();
 
             DB::commit();
