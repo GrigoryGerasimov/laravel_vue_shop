@@ -30,6 +30,7 @@ class UpdateRequest extends FormRequest
             'password' => 'required|string',
             'age' => 'required|integer',
             'gender_id' => 'required|integer',
+            'country_id' => 'required|integer',
             'address_line_1' => 'required|string',
             'address_line_2' => 'nullable|string',
             'street_number' => 'required|string',
@@ -37,7 +38,7 @@ class UpdateRequest extends FormRequest
             'city' => 'required|string',
             'region' => 'nullable|string',
             'postal_code' => 'required|string',
-            'country_id' => 'required|integer'
+            'address_country_id' => 'required|integer'
         ];
     }
 }

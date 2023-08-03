@@ -36,8 +36,8 @@
                         <th class="text-center">Password</th>
                         <th class="text-center">Age</th>
                         <th class="text-center">Gender</th>
-                        <th class="text-center">Delivery Address</th>
-                        <th class="text-center">Country</th>
+                        <th class="text-center">Nationality</th>
+                        <th class="text-center">Addresses</th>
                         <th class="text-center">Created At</th>
                         <th class="text-center">Updated At</th>
                     </tr>
@@ -45,7 +45,7 @@
                     <tfoot>
                     <tr>
                         <td colspan="10">
-                            <div class="d-flex flex-row align-items-center mt-5">
+                            <div class="d-flex flex-row align-items-end mt-5">
                                 <a href="{{ route('users.edit', $user) }}"
                                    class="text-dark mr-4">Edit</a>
                                 <form action="{{ route('users.destroy', $user) }}" method="POST"
@@ -69,10 +69,18 @@
                         <td class="text-center">{{ substr($user->password, 0, 15) }}...</td>
                         <td class="text-center">{{ $user->age }}</td>
                         <td class="text-center">{{ $user->gender->title }}</td>
-                        <td class="text-center">{{ $user->address_line_1 }}, {{ $user->address_line_2 }}, {{ $user->street_number }}
-                            , {{ $user->unit_number }}, {{ $user->city }}, {{ $user->region }}
-                            , {{ $user->postal_code }}</td>
                         <td class="text-center">{{ $user->country->title }}</td>
+
+                        <td class="text-center">
+                            <div>{{ $user->address->address_line_1 }}</div>
+                            <div>{{ $user->address->address_line_2 }}</div>
+                            <div>{{ $user->address->street_number }}</div>
+                            <div>{{ $user->address->unit_number }}</div>
+                            <div>{{ $user->address->postal_code }}, {{ $user->address->city }}</div>
+                            <div>{{ $user->address->region }}</div>
+                            <div>{{ $user->address->country->title }}</div>
+                        </td>
+
                         <td class="text-center">{{ $user->created_at }}</td>
                         <td class="text-center">{{ $user->updated_at }}</td>
                     </tr>

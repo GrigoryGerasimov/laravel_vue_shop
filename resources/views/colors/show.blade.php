@@ -41,7 +41,7 @@
                     <tfoot>
                     <tr>
                         <td colspan="10">
-                            <div class="d-flex flex-row align-items-center mt-5">
+                            <div class="d-flex flex-row align-items-end mt-5">
                                 <a href="{{ route('colors.edit', $color) }}"
                                    class="text-dark mr-4">Edit</a>
                                 <form action="{{ route('colors.destroy', $color) }}" method="POST"
