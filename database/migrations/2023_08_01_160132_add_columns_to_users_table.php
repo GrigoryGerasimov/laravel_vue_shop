@@ -17,13 +17,6 @@ return new class extends Migration
             $table->string('last_name')->nullable(false);
             $table->integer('age')->nullable();
             $table->unsignedBigInteger('gender_id')->nullable(false);
-            $table->string('address_line_1')->nullable(false);
-            $table->string('address_line_2')->nullable();
-            $table->char('street_number', 10)->nullable(false);
-            $table->char('unit_number', 5)->nullable();
-            $table->string('city')->nullable(false);
-            $table->string('region')->nullable();
-            $table->char('postal_code', 10)->nullable(false);
             $table->unsignedBigInteger('country_id')->nullable(false);
 
             $table->index('gender_id', 'user_gender_idx');
@@ -50,13 +43,8 @@ return new class extends Migration
             $table->dropColumn('middle_name');
             $table->dropColumn('last_name');
             $table->dropColumn('age');
-            $table->dropColumn('address_line_1');
-            $table->dropColumn('address_line_2');
-            $table->dropColumn('street_number');
-            $table->dropColumn('unit_number');
-            $table->dropColumn('city');
-            $table->dropColumn('region');
-            $table->dropColumn('postal_code');
+            $table->dropColumn('gender_id');
+            $table->dropColumn('country_id');
         });
     }
 };

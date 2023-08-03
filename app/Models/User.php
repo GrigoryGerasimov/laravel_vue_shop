@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -27,14 +26,8 @@ class User extends Authenticatable
         'password',
         'age',
         'gender_id',
-        'address_line_1',
-        'address_line_2',
-        'street_number',
-        'unit_number',
-        'city',
-        'region',
-        'postal_code',
-        'country_id'
+        'country_id',
+        'address_id'
     ];
 
     /**
@@ -71,5 +64,13 @@ class User extends Authenticatable
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function address(): BelongsTo
+    {
+        return $this->belongsTo(Address::class);
     }
 }

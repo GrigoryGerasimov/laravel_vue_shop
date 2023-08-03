@@ -28,8 +28,10 @@ class StoreRequest extends FormRequest
             'last_name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|confirmed',
+            'password_confirmation' => 'required|string',
             'age' => 'required|integer',
             'gender_id' => 'required|integer',
+            'country_id' => 'required|integer',
             'address_line_1' => 'required|string',
             'address_line_2' => 'nullable|string',
             'street_number' => 'required|string',
@@ -37,7 +39,7 @@ class StoreRequest extends FormRequest
             'city' => 'required|string',
             'region' => 'nullable|string',
             'postal_code' => 'required|string',
-            'country_id' => 'required|integer'
+            'address_country_id' => 'required|integer'
         ];
     }
 }
