@@ -14,7 +14,7 @@
                             <li class="breadcrumb-item">
                                 <a class="text-dark" href="{{ route('admin.index') }}">Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Update Color</li>
+                            <li class="breadcrumb-item active">Update User</li>
                         </ol>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                 <h6 class="text-secondary">Personal Details</h6>
 
                 <div class='mt-5'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='first_name' class='text-sm' style='width: 120px'>First Name</label>
                         <input
                             class='form-control @error('first_name') is-invalid @enderror'
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='middle_name' class='text-sm' style='width: 120px'>Middle Name</label>
                         <input
                             class='form-control @error('middle_name') is-invalid @enderror'
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='last_name' class='text-sm' style='width: 120px'>Last Name</label>
                         <input
                             class='form-control @error('last_name') is-invalid @enderror'
@@ -78,7 +78,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='email' class='text-sm' style='width: 120px'>Email</label>
                         <input
                             class='form-control @error('last_name') is-invalid @enderror'
@@ -95,7 +95,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='password' class='text-sm' style='width: 120px'>Password</label>
                         <input
                             class='form-control @error('password') is-invalid @enderror'
@@ -112,7 +112,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='age' class='text-sm' style='width: 120px'>Age</label>
                         <input
                             class='form-control @error('age') is-invalid @enderror'
@@ -129,7 +129,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='gender_id' class='text-sm' style='width: 120px'>Gender</label>
                         <select
                             class='custom-select @error('gender_id') is-invalid @enderror'
@@ -150,7 +150,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='country_id' class='text-sm' style='width: 120px'>Nationality</label>
                         <select
                             class='custom-select @error('country_id') is-invalid @enderror'
@@ -177,7 +177,7 @@
                 <h6 class="text-secondary">Address Details</h6>
 
                 <div class='mt-5'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='address_line_1' class='text-sm' style='width: 120px'>Address Line 1</label>
                         <input
                             class='form-control @error('address_line_1') is-invalid @enderror'
@@ -193,7 +193,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='address_line_2' class='text-sm' style='width: 120px'>Address Line 2</label>
                         <input
                             class='form-control @error('address_line_2') is-invalid @enderror'
@@ -209,7 +209,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='street_number' class='text-sm' style='width: 120px'>Street Nr</label>
                         <input
                             class='form-control @error('street_number') is-invalid @enderror'
@@ -225,7 +225,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='unit_number' class='text-sm' style='width: 120px'>Unit Nr</label>
                         <input
                             class='form-control @error('unit_number') is-invalid @enderror'
@@ -241,7 +241,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='city' class='text-sm' style='width: 120px'>City</label>
                         <input
                             class='form-control @error('city') is-invalid @enderror'
@@ -257,7 +257,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='region' class='text-sm' style='width: 120px'>Region</label>
                         <input
                             class='form-control @error('region') is-invalid @enderror'
@@ -273,7 +273,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='postal_code' class='text-sm' style='width: 120px'>Postal Code</label>
                         <input
                             class='form-control @error('postal_code') is-invalid @enderror'
@@ -289,7 +289,7 @@
                 </div>
 
                 <div class='my-3'>
-                    <div class='form-group d-flex flex-row align-items-baseline'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                         <label for='address_country_id' class='text-sm' style='width: 120px'>Country</label>
                         <select
                             class='custom-select @error('address_country_id') is-invalid @enderror'

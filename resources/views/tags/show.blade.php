@@ -30,16 +30,16 @@
             <div class="card-body table-responsive p-0" style="height: 300px;">
                 <table class="table table-head-fixed text-nowrap">
                     <thead>
-                    <tr>
-                        <th class="text-center">ID</th>
-                        <th class="text-center">Title</th>
-                        <th class="text-center">Created At</th>
-                        <th class="text-center">Updated At</th>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <td colspan="10">
+                        <td colspan="4">
                             <div class="d-flex flex-row align-items-end mt-5">
                                 <a href="{{ route('tags.edit', $tag) }}"
                                    class="text-dark mr-4">Edit</a>
@@ -57,11 +57,11 @@
                     </tr>
                     </tfoot>
                     <tbody>
-                    <tr>
-                        <td class="text-center">{{ $tag->id }}</td>
-                        <td class="text-center">#{{ $tag->title }}</td>
-                        <td class="text-center">{{ $tag->created_at }}</td>
-                        <td class="text-center">{{ $tag->updated_at }}</td>
+                    <tr class="text-center">
+                        <td>{{ $tag->id }}</td>
+                        <td>#{{ $tag->title }}</td>
+                        <td>{{ $tag->created_at }}</td>
+                        <td>{{ $tag->updated_at }}</td>
                     </tr>
                     </tbody>
                 </table>

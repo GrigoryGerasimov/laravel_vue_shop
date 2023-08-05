@@ -11,19 +11,18 @@
                 <table class="table table-head-fixed text-nowrap">
                     @if($tagsList->isNotEmpty())
                         <thead>
-                        <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center">Title</th>
-                            <th class="text-center"></th>
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th>Title</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($tagsList as $tag)
-                            <tr>
-                                <td class="text-center">{{ $tag->id }}</td>
-                                <td class="text-center">#{{ $tag->title }}</td>
-                                <td class="text-center">
+                            <tr class="text-center">
+                                <td>{{ $tag->id }}</td>
+                                <td>#{{ $tag->title }}</td>
+                                <td>
                                     <a href="{{ route('tags.show', $tag) }}"
                                        class="text-dark">Details</a>
                                 </td>
@@ -35,7 +34,7 @@
             </div>
 
             <div>
-                <a href="{{ route('tags.create') }}" class="btn btn-dark m-5">New Tag</a>
+                <a href="{{ route('tags.create') }}" class="btn btn-dark mx-4 my-3">New Tag</a>
             </div>
         </div>
     </section>

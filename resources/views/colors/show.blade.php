@@ -29,18 +29,18 @@
             <div class="card-body table-responsive p-0" style="height: 300px;">
                 <table class="table table-head-fixed text-nowrap">
                     <thead>
-                    <tr>
-                        <th class="text-center">ID</th>
-                        <th class="text-center">Title</th>
-                        <th class="text-center">HEX</th>
-                        <th class="text-center">Color</th>
-                        <th class="text-center">Created At</th>
-                        <th class="text-center">Updated At</th>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>HEX</th>
+                        <th>Color</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <td colspan="10">
+                        <td colspan="6">
                             <div class="d-flex flex-row align-items-end mt-5">
                                 <a href="{{ route('colors.edit', $color) }}"
                                    class="text-dark mr-4">Edit</a>
@@ -58,15 +58,15 @@
                     </tr>
                     </tfoot>
                     <tbody>
-                    <tr>
-                        <td class="text-center">{{ $color->id }}</td>
-                        <td class="text-center">{{ $color->title }}</td>
-                        <td class="text-center">#{{ $color->hex }}</td>
+                    <tr class="text-center">
+                        <td>{{ $color->id }}</td>
+                        <td>{{ $color->title }}</td>
+                        <td>#{{ $color->hex }}</td>
                         <td>
                             <div style="width: 13px; height: 13px; margin: 5px auto; background-color:#{{ $color->hex }}; border: 1px solid #4b545c"></div>
                         </td>
-                        <td class="text-center">{{ $color->created_at }}</td>
-                        <td class="text-center">{{ $color->updated_at }}</td>
+                        <td>{{ $color->created_at }}</td>
+                        <td>{{ $color->updated_at }}</td>
                     </tr>
                     </tbody>
                 </table>
