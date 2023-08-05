@@ -11,24 +11,24 @@
                 <table class="table table-head-fixed text-nowrap">
                     @if($usersList->isNotEmpty())
                         <thead>
-                        <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Email</th>
-                            <th class="text-center">Gender</th>
-                            <th class="text-center">Nationality</th>
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Nationality</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($usersList as $user)
-                            <tr>
-                                <td class="text-center">{{ $user->id }}</td>
-                                <td class="text-center">{{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</td>
-                                <td class="text-center">{{ $user->email }}</td>
-                                <td class="text-center">{{ $user->gender->title }}</td>
-                                <td class="text-center">{{ $user->country->title }}</td>
-                                <td class="text-center">
+                            <tr class="text-center">
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->gender->title }}</td>
+                                <td>{{ $user->country->title }}</td>
+                                <td>
                                     <a href="{{ route('users.show', $user) }}"
                                        class="text-dark">Details</a>
                                 </td>
@@ -40,7 +40,7 @@
             </div>
 
             <div>
-                <a href="{{ route('users.create') }}" class="btn btn-dark m-5">New User</a>
+                <a href="{{ route('users.create') }}" class="btn btn-dark mx-4 my-3">New User</a>
             </div>
         </div>
     </section>

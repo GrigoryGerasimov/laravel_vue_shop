@@ -29,17 +29,17 @@
             <div class="card-body table-responsive p-0" style="height: 300px;">
                 <table class="table table-head-fixed text-nowrap">
                     <thead>
-                    <tr>
-                        <th class="text-center">ID</th>
-                        <th class="text-center">Name</th>
-                        <th class="text-center">Email</th>
-                        <th class="text-center">Password</th>
-                        <th class="text-center">Age</th>
-                        <th class="text-center">Gender</th>
-                        <th class="text-center">Nationality</th>
-                        <th class="text-center">Addresses</th>
-                        <th class="text-center">Created At</th>
-                        <th class="text-center">Updated At</th>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Nationality</th>
+                        <th>Addresses</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -62,16 +62,16 @@
                     </tr>
                     </tfoot>
                     <tbody>
-                    <tr>
-                        <td class="text-center">{{ $user->id }}</td>
-                        <td class="text-center">{{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</td>
-                        <td class="text-center">{{ $user->email }}</td>
-                        <td class="text-center">{{ substr($user->password, 0, 15) }}...</td>
-                        <td class="text-center">{{ $user->age }}</td>
-                        <td class="text-center">{{ $user->gender->title }}</td>
-                        <td class="text-center">{{ $user->country->title }}</td>
+                    <tr class="text-center">
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ substr($user->password, 0, 15) }}...</td>
+                        <td>{{ $user->age }}</td>
+                        <td>{{ $user->gender->title }}</td>
+                        <td>{{ $user->country->title }}</td>
 
-                        <td class="text-center">
+                        <td>
                             <div>{{ $user->address->address_line_1 }}</div>
                             <div>{{ $user->address->address_line_2 }}</div>
                             <div>{{ $user->address->street_number }}</div>
@@ -81,8 +81,8 @@
                             <div>{{ $user->address->country->title }}</div>
                         </td>
 
-                        <td class="text-center">{{ $user->created_at }}</td>
-                        <td class="text-center">{{ $user->updated_at }}</td>
+                        <td>{{ $user->created_at }}</td>
+                        <td>{{ $user->updated_at }}</td>
                     </tr>
                     </tbody>
                 </table>
