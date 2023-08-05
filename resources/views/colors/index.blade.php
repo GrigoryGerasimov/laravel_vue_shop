@@ -11,23 +11,22 @@
                 <table class="table table-head-fixed text-nowrap">
                     @if($colorsList->isNotEmpty())
                         <thead>
-                        <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center">Title</th>
-                            <th class="text-center">Color</th>
-                            <th class="text-center"></th>
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Color</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($colorsList as $color)
-                            <tr>
-                                <td class="text-center">{{ $color->id }}</td>
-                                <td class="text-center">{{ $color->title }}</td>
+                            <tr class="text-center">
+                                <td>{{ $color->id }}</td>
+                                <td>{{ $color->title }}</td>
                                 <td>
                                     <div style="width: 13px; height: 13px; margin: 5px auto; background-color:#{{ $color->hex }}; border: 1px solid #4b545c"></div>
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     <a href="{{ route('colors.show', $color) }}"
                                        class="text-dark">Details</a>
                                 </td>
@@ -39,7 +38,7 @@
             </div>
 
             <div>
-                <a href="{{ route('colors.create') }}" class="btn btn-dark m-5">New Color</a>
+                <a href="{{ route('colors.create') }}" class="btn btn-dark mx-4 my-3">New Color</a>
             </div>
         </div>
     </section>

@@ -50,4 +50,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::delete('/{user}', 'DestroyController')->name('users.destroy');
         Route::get('/{user}/restore', 'RestoreController')->withTrashed()->name('users.restore');
     });
+
+    Route::group(['namespace' => 'Article', 'prefix' => 'articles'], function () {
+        Route::get('/', 'IndexController')->name('articles.index');
+        Route::get('/create', 'CreateController')->name('articles.create');
+        Route::post('/', 'StoreController')->name('articles.store');
+        Route::get('/{article}', 'ShowController')->name('articles.show');
+        Route::patch('/{article}', 'UpdateController')->name('articles.update');
+        Route::get('/{article}/edit', 'EditController')->name('articles.edit');
+        Route::delete('/{article}', 'DestroyController')->name('articles.destroy');
+        Route::get('/{article}/restore', 'RestoreController')->withTrashed()->name('articles.restore');
+    });
 });

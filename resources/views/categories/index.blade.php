@@ -11,19 +11,18 @@
                 <table class="table table-head-fixed text-nowrap">
                     @if($categoriesList->isNotEmpty())
                         <thead>
-                        <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center">Title</th>
-                            <th class="text-center"></th>
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th>Title</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($categoriesList as $category)
-                            <tr>
-                                <td class="text-center">{{ $category->id }}</td>
-                                <td class="text-center">{{ $category->title }}</td>
-                                <td class="text-center">
+                            <tr class="text-center">
+                                <td>{{ $category->id }}</td>
+                                <td>{{ $category->title }}</td>
+                                <td>
                                     <a href="{{ route('categories.show', $category) }}"
                                        class="text-dark">Details</a>
                                 </td>
@@ -35,7 +34,7 @@
             </div>
 
             <div>
-                <a href="{{ route('categories.create') }}" class="btn btn-dark m-5">New Category</a>
+                <a href="{{ route('categories.create') }}" class="btn btn-dark mx-4 my-3">New Category</a>
             </div>
         </div>
     </section>
