@@ -33,6 +33,7 @@ class UpdateRequest extends FormRequest
             ],
             'content' => 'nullable|string',
             'preview_img' => 'nullable|image',
+            'previous_price' => 'nullable|decimal:2',
             'purchase_price' => 'required|decimal:2',
             'recommended_retail_price' => 'required|decimal:2',
             'total_amount' => 'required|integer',
