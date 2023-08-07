@@ -86,6 +86,7 @@
                         value='{{ old('content') }}'
                         placeholder='content'
                     />
+                    <i class='ml-2'>(Optional)</i>
                 </div>
                 @error('content')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -211,6 +212,7 @@
                                     @if(is_array(old('tags')) && in_array($tag->id, old('tags'))) selected @endif>{{ $tag->title }}</option>
                         @endforeach
                     </select>
+                    <i class='ml-2'>(Optional)</i>
                 </div>
             </div>
 
@@ -230,6 +232,7 @@
                                     @if(is_array(old('colors')) && in_array($color->id, old('colors'))) selected @endif>{{ $color->title }}</option>
                         @endforeach
                     </select>
+                    <i class='ml-2'>(Optional)</i>
                 </div>
             </div>
 

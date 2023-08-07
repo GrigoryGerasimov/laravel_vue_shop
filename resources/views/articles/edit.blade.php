@@ -102,6 +102,7 @@
                         value='{{ old('content') ?? $article->content }}'
                         placeholder='content'
                     />
+                    <i class='ml-2'>(Optional)</i>
                 </div>
                 @error('content')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -137,6 +138,28 @@
                 <p class='text-danger mt-3'>{{ $message }}</p>
                 @enderror
             </div>
+
+            <div class='my-3'>
+                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                    <label for='previous_price' class='text-sm' style='width: 120px'>Previous Price</label>
+                    <input
+                        class='form-control @error('previous_price') is-invalid @enderror'
+                        style='width: 350px'
+                        type='number'
+                        id='previous_price'
+                        name='previous_price'
+                        value='{{ old('previous_price') ?? $article->previous_price }}'
+                        placeholder='previous price'
+                        min='0'
+                        step='0.01'
+                    />
+                    <i class='ml-2'>(Optional)</i>
+                </div>
+                @error('previous_price')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
+            </div>
+
 
             <div class='my-3'>
                 <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
@@ -238,6 +261,7 @@
                             </option>
                         @endforeach
                     </select>
+                    <i class='ml-2'>(Optional)</i>
                 </div>
             </div>
 
@@ -261,6 +285,7 @@
                             </option>
                         @endforeach
                     </select>
+                    <i class='ml-2'>(Optional)</i>
                 </div>
             </div>
 
