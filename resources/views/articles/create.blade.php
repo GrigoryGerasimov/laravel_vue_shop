@@ -198,6 +198,27 @@
 
             <div class='my-3'>
                 <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                    <label for='group_id' class='text-sm' style='width: 120px'>Group</label>
+                    <select
+                        class='custom-select @error('group_id') is-invalid @enderror'
+                        style='width: 350px'
+                        id='group_id'
+                        name='group_id'
+                    >
+                        <option selected disabled>select...</option>
+                        @foreach($groupsList as $group)
+                            <option value='{{ $group->id }}'
+                                    @if(old('group_id') == $group->id) selected @endif>{{ $group->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @error('group_id')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class='my-3'>
+                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                     <label for='tags' class='text-sm' style='width: 120px'>Tags</label>
                     <select
                         class='tags @error('tags') is-invalid @enderror'

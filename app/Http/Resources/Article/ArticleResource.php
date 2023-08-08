@@ -23,7 +23,7 @@ class ArticleResource extends JsonResource
             'description' => $this->description,
             'ean' => $this->ean,
             'content' => $this->content,
-            'preview_img' => $this->preview_img,
+            'preview_img' => $this->imageUrl,
             'previous_price' => $this->previous_price,
             'purchase_price' => $this->purchase_price,
             'recommended_retail_price' => $this->recommended_retail_price,

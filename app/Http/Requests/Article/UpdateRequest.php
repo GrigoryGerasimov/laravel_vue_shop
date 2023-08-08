@@ -39,6 +39,7 @@ class UpdateRequest extends FormRequest
             'total_amount' => 'required|integer',
             'unpublish' => 'nullable|string',
             'category_id' => 'required|integer',
+            'group_id' => 'required|integer',
             'tags' => 'nullable|array',
             'colors' => 'nullable|array'
         ];

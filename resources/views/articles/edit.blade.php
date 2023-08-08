@@ -243,6 +243,27 @@
 
             <div class='my-3'>
                 <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                    <label for='group_id' class='text-sm' style='width: 120px'>Group</label>
+                    <select
+                        class='custom-select @error('group_id') is-invalid @enderror'
+                        style='width: 350px'
+                        id='group_id'
+                        name='group_id'
+                    >
+                        <option selected disabled>select...</option>
+                        @foreach($groupsList as $group)
+                            <option value='{{ $group->id }}'
+                                    @if(($group->id == $article->group_id) || (old('group_id') == $group->id)) selected @endif>{{ $group->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @error('group_id')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class='my-3'>
+                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
                     <label for='tags' class='text-sm' style='width: 120px'>Tags</label>
                     <select
                         class='tags @error('tags') is-invalid @enderror'
@@ -255,7 +276,7 @@
                         @foreach($tagsList as $tag)
                             <option
                                 value='{{ $tag->id }}'
-                                @if((is_array($article->tags()->where(['article_tags.deleted_at' => null])->get()->toArray()) && in_array($tag->id, $article->tags()->where(['article_tags.deleted_at' => null])->pluck('tags.id')->toArray())) || (is_array(old('tags')) && in_array($tag->id, old('tags')))) selected @endif
+                                @if((is_array($article->activeTags->toArray()) && in_array($tag->id, $article->activeTags->pluck('id')->toArray())) || (is_array(old('tags')) && in_array($tag->id, old('tags')))) selected @endif
                             >
                                 {{ $tag->title }}
                             </option>
@@ -279,7 +300,7 @@
                         @foreach($colorsList as $color)
                             <option
                                 value='{{ $color->id }}'
-                                @if((is_array($article->colors()->where(['color_articles.deleted_at' => null])->get()->toArray()) && in_array($color->id, $article->colors()->where(['color_articles.deleted_at' => null])->pluck('colors.id')->toArray())) || (is_array(old('colors')) && in_array($color->id, old('colors')))) selected @endif
+                                @if((is_array($article->activeColors->toArray()) && in_array($color->id, $article->activeColors->pluck('id')->toArray())) || (is_array(old('colors')) && in_array($color->id, old('colors')))) selected @endif
                             >
                                 {{ $color->title }}
                             </option>

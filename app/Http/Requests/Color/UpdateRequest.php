@@ -23,7 +23,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', Rule::unique('tags', 'title')->ignore($this->route('tag'))],
+            'title' => ['required', 'string', Rule::unique('colors', 'title')->ignore($this->route('color'))],
             'hex' => [
                 'required',
                 'string',
