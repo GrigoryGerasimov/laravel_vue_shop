@@ -35,6 +35,7 @@
                         value='{{ old('title') }}'
                         placeholder='title'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('title')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -52,6 +53,7 @@
                         value='{{ old('description') }}'
                         placeholder='description'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('description')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -69,6 +71,7 @@
                         value='{{ old('ean') }}'
                         placeholder='ean'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('ean')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -86,7 +89,6 @@
                         value='{{ old('content') }}'
                         placeholder='content'
                     />
-                    <i class='ml-2'>(Optional)</i>
                 </div>
                 @error('content')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -110,8 +112,81 @@
                             <span class='input-group-text'>Upload</span>
                         </div>
                     </div>
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('preview_img')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class='my-3'>
+                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                    <label for='article_img_1' class='text-sm' style='width: 120px'>Article Image 1</label>
+                    <div class='input-group' style='width: 350px'>
+                        <div class='custom-file'>
+                            <input
+                                type='file'
+                                class='custom-file-input @error('article_img_1') is-invalid @enderror'
+                                id='article_img_1'
+                                name='article_img_1'
+                            />
+                            <label class='custom-file-label' for='article_img_1'>choose file</label>
+                        </div>
+                        <div class='input-group-append'>
+                            <span class='input-group-text'>Upload</span>
+                        </div>
+                    </div>
+                    <strong class='ml-2 text-danger'>*</strong>
+                </div>
+                @error('article_img_1')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class='my-3'>
+                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                    <label for='article_img_2' class='text-sm' style='width: 120px'>Article Image 2</label>
+                    <div class='input-group' style='width: 350px'>
+                        <div class='custom-file'>
+                            <input
+                                type='file'
+                                class='custom-file-input @error('article_img_2') is-invalid @enderror'
+                                id='article_img_2'
+                                name='article_img_2'
+                            />
+                            <label class='custom-file-label' for='article_img_2'>choose file</label>
+                        </div>
+                        <div class='input-group-append'>
+                            <span class='input-group-text'>Upload</span>
+                        </div>
+                    </div>
+                    <strong class='ml-2 text-danger'>*</strong>
+                </div>
+                @error('article_img_2')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class='my-3'>
+                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                    <label for='article_img_3' class='text-sm' style='width: 120px'>Article Image 3</label>
+                    <div class='input-group' style='width: 350px'>
+                        <div class='custom-file'>
+                            <input
+                                type='file'
+                                class='custom-file-input @error('article_img_3') is-invalid @enderror'
+                                id='article_img_3'
+                                name='article_img_3'
+                            />
+                            <label class='custom-file-label' for='article_img_3'>choose file</label>
+                        </div>
+                        <div class='input-group-append'>
+                            <span class='input-group-text'>Upload</span>
+                        </div>
+                    </div>
+                    <strong class='ml-2 text-danger'>*</strong>
+                </div>
+                @error('article_img_3')
                 <p class='text-danger mt-3'>{{ $message }}</p>
                 @enderror
             </div>
@@ -130,6 +205,7 @@
                         min='0'
                         step='0.01'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('purchase_price')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -150,6 +226,7 @@
                         min='0'
                         step='0.01'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('recommended_retail_price')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -169,6 +246,7 @@
                         placeholder='total amount'
                         min='0'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('total_amount')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -190,6 +268,7 @@
                                     @if(old('category_id') == $category->id) selected @endif>{{ $category->title }}</option>
                         @endforeach
                     </select>
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('category_id')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -211,6 +290,7 @@
                                     @if(old('group_id') == $group->id) selected @endif>{{ $group->title }}</option>
                         @endforeach
                     </select>
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('group_id')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -233,7 +313,6 @@
                                     @if(is_array(old('tags')) && in_array($tag->id, old('tags'))) selected @endif>{{ $tag->title }}</option>
                         @endforeach
                     </select>
-                    <i class='ml-2'>(Optional)</i>
                 </div>
             </div>
 
@@ -253,7 +332,6 @@
                                     @if(is_array(old('colors')) && in_array($color->id, old('colors'))) selected @endif>{{ $color->title }}</option>
                         @endforeach
                     </select>
-                    <i class='ml-2'>(Optional)</i>
                 </div>
             </div>
 

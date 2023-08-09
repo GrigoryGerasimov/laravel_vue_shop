@@ -36,6 +36,7 @@
                         name='unpublish'
                         {{ !$article->is_published ? 'checked' : '' }}
                     >
+                    <strong class='ml-2 text-danger'>*</strong>
                     <label for='unpublish' class='custom-control-label text-sm'>Unpublish</label>
                 </div>
             </div>
@@ -51,6 +52,7 @@
                         value='{{ old('title') ?? $article->title }}'
                         placeholder='title'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('title')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -68,6 +70,7 @@
                         value='{{ old('description') ?? $article->description }}'
                         placeholder='description'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('description')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -85,6 +88,7 @@
                         value='{{ old('ean') ?? $article->ean }}'
                         placeholder='ean'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('ean')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -102,7 +106,6 @@
                         value='{{ old('content') ?? $article->content }}'
                         placeholder='content'
                     />
-                    <i class='ml-2'>(Optional)</i>
                 </div>
                 @error('content')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -126,6 +129,7 @@
                             <span class='input-group-text'>Upload</span>
                         </div>
                     </div>
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @if($article->preview_img && Storage::disk('public')->exists($article->preview_img))
                     <img
@@ -135,6 +139,99 @@
                     />
                 @endif
                 @error('preview_img')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class='my-3'>
+                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                    <label for='article_img_1' class='text-sm' style='width: 120px'>Article Image 1</label>
+                    <div class='input-group' style='width: 350px'>
+                        <div class='custom-file'>
+                            <input
+                                type='file'
+                                class='custom-file-input @error('article_img_1') is-invalid @enderror'
+                                id='article_img_1'
+                                name='article_img_1'
+                            />
+                            <label class='custom-file-label' for='article_img_1'>choose file</label>
+                        </div>
+                        <div class='input-group-append'>
+                            <span class='input-group-text'>Upload</span>
+                        </div>
+                    </div>
+                    <strong class='ml-2 text-danger'>*</strong>
+                </div>
+                @if($article->article_img_1 && Storage::disk('public')->exists($article->article_img_1))
+                    <img
+                        src='{{ url('storage/' .  $article->article_img_1) }}'
+                        alt='{{ $article->title }}'
+                        style='width: 350px; margin-left: 120px'
+                    />
+                @endif
+                @error('article_img_1')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class='my-3'>
+                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                    <label for='article_img_2' class='text-sm' style='width: 120px'>Article Image 2</label>
+                    <div class='input-group' style='width: 350px'>
+                        <div class='custom-file'>
+                            <input
+                                type='file'
+                                class='custom-file-input @error('article_img_2') is-invalid @enderror'
+                                id='article_img_2'
+                                name='article_img_2'
+                            />
+                            <label class='custom-file-label' for='article_img_2'>choose file</label>
+                        </div>
+                        <div class='input-group-append'>
+                            <span class='input-group-text'>Upload</span>
+                        </div>
+                    </div>
+                    <strong class='ml-2 text-danger'>*</strong>
+                </div>
+                @if($article->article_img_2 && Storage::disk('public')->exists($article->article_img_2))
+                    <img
+                        src='{{ url('storage/' .  $article->article_img_2) }}'
+                        alt='{{ $article->title }}'
+                        style='width: 350px; margin-left: 120px'
+                    />
+                @endif
+                @error('article_img_2')
+                <p class='text-danger mt-3'>{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class='my-3'>
+                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                    <label for='article_img_3' class='text-sm' style='width: 120px'>Article Image 3</label>
+                    <div class='input-group' style='width: 350px'>
+                        <div class='custom-file'>
+                            <input
+                                type='file'
+                                class='custom-file-input @error('article_img_3') is-invalid @enderror'
+                                id='article_img_3'
+                                name='article_img_3'
+                            />
+                            <label class='custom-file-label' for='article_img_3'>choose file</label>
+                        </div>
+                        <div class='input-group-append'>
+                            <span class='input-group-text'>Upload</span>
+                        </div>
+                    </div>
+                    <strong class='ml-2 text-danger'>*</strong>
+                </div>
+                @if($article->article_img_3 && Storage::disk('public')->exists($article->article_img_3))
+                    <img
+                        src='{{ url('storage/' .  $article->article_img_3) }}'
+                        alt='{{ $article->title }}'
+                        style='width: 350px; margin-left: 120px'
+                    />
+                @endif
+                @error('article_img_3')
                 <p class='text-danger mt-3'>{{ $message }}</p>
                 @enderror
             </div>
@@ -153,7 +250,6 @@
                         min='0'
                         step='0.01'
                     />
-                    <i class='ml-2'>(Optional)</i>
                 </div>
                 @error('previous_price')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -175,6 +271,7 @@
                         min='0'
                         step='0.01'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('purchase_price')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -195,6 +292,7 @@
                         min='0'
                         step='0.01'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('recommended_retail_price')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -214,6 +312,7 @@
                         placeholder='total amount'
                         min='0'
                     />
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('total_amount')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -235,6 +334,7 @@
                                     @if(($category->id == $article->category_id) || (old('category_id') == $category->id)) selected @endif>{{ $category->title }}</option>
                         @endforeach
                     </select>
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('category_id')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -256,6 +356,7 @@
                                     @if(($group->id == $article->group_id) || (old('group_id') == $group->id)) selected @endif>{{ $group->title }}</option>
                         @endforeach
                     </select>
+                    <strong class='ml-2 text-danger'>*</strong>
                 </div>
                 @error('group_id')
                 <p class='text-danger mt-3'>{{ $message }}</p>
@@ -282,7 +383,6 @@
                             </option>
                         @endforeach
                     </select>
-                    <i class='ml-2'>(Optional)</i>
                 </div>
             </div>
 
@@ -306,7 +406,6 @@
                             </option>
                         @endforeach
                     </select>
-                    <i class='ml-2'>(Optional)</i>
                 </div>
             </div>
 
