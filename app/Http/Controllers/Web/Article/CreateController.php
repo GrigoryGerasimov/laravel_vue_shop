@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Web\Article;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Category, Color, Tag};
+use App\Models\{Category, Color, Group, Tag};
 use Illuminate\View\View;
 
 class CreateController extends Controller
@@ -14,9 +14,10 @@ class CreateController extends Controller
     public function __invoke(): View
     {
         $categoriesList = Category::all();
+        $groupsList = Group::all();
         $tagsList = Tag::all();
         $colorsList = Color::all();
 
-        return view('articles.create', compact('categoriesList', 'tagsList', 'colorsList'));
+        return view('articles.create', compact('categoriesList', 'groupsList', 'tagsList', 'colorsList'));
     }
 }

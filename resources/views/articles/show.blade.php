@@ -35,10 +35,12 @@
                         <th>EAN/GTIN</th>
                         <th>Content</th>
                         <th>Image</th>
-                        <th>PP</th>
+                        <th>Previous Price</th>
+                        <th>Purchase Price</th>
                         <th>RRP</th>
                         <th>Amount</th>
                         <th>Category</th>
+                        <th>Product Group</th>
                         <th>Colors</th>
                         <th>Tags</th>
                         <th>Created At</th>
@@ -79,15 +81,17 @@
                                 />
                             @endif
                         </td>
+                        <td>{{ $article->previous_price }} &#8364;</td>
                         <td>{{ $article->purchase_price }} &#8364;</td>
                         <td>{{ $article->recommended_retail_price }} &#8364;</td>
                         <td>{{ $article->total_amount }}</td>
                         <td>{{ $article->category->title }}</td>
+                        <td>{{ $article->group->title }}</td>
                         <td>
-                            {{ substr($article->colors()->where(['color_articles.deleted_at' => null])->get()->reduce(function($acc, $val) { return $acc . ', ' . $val->title; }), 2) }}
+                            {{ substr($article->activeColors->reduce(function($acc, $val) { return $acc . ', ' . $val->title; }), 2) }}
                         </td>
                         <td>
-                            {{ substr($article->tags()->where(['article_tags.deleted_at' => null])->get()->reduce(function($acc, $val) { return $acc . ', ' . "#$val->title"; }), 2) }}
+                            {{ substr($article->activeTags->reduce(function($acc, $val) { return $acc . ', ' . "#$val->title"; }), 2) }}
                         </td>
                         <td>{{ $article->created_at }}</td>
                         <td>{{ $article->updated_at }}</td>

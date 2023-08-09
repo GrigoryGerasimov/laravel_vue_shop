@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\Web\Article;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
-use App\Models\Category;
-use App\Models\Color;
-use App\Models\Tag;
+use App\Models\{Article, Category, Color, Group, Tag};
 use Illuminate\View\View;
 
 class EditController extends Controller
@@ -18,9 +15,10 @@ class EditController extends Controller
     public function __invoke(Article $article): View
     {
         $categoriesList = Category::all();
+        $groupsList = Group::all();
         $tagsList = Tag::all();
         $colorsList = Color::all();
 
-        return view('articles.edit', compact('article', 'categoriesList', 'tagsList', 'colorsList'));
+        return view('articles.edit', compact('article', 'categoriesList', 'groupsList', 'tagsList', 'colorsList'));
     }
 }

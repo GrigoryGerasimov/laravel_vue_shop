@@ -18,6 +18,17 @@ Route::group(['namespace' => 'App\Http\Controllers\Web'], function () {
         Route::get('/{category}/restore', 'RestoreController')->withTrashed()->name('categories.restore');
     });
 
+    Route::group(['namespace' => 'Group', 'prefix' => 'groups'], function () {
+        Route::get('/', 'IndexController')->name('groups.index');
+        Route::get('/create', 'CreateController')->name('groups.create');
+        Route::post('/', 'StoreController')->name('groups.store');
+        Route::get('/{group}', 'ShowController')->name('groups.show');
+        Route::patch('/{group}', 'UpdateController')->name('groups.update');
+        Route::get('/{group}/edit', 'EditController')->name('groups.edit');
+        Route::delete('/{group}', 'DestroyController')->name('groups.destroy');
+        Route::get('/{group}/restore', 'RestoreController')->withTrashed()->name('groups.restore');
+    });
+
     Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
         Route::get('/', 'IndexController')->name('tags.index');
         Route::get('/create', 'CreateController')->name('tags.create');
