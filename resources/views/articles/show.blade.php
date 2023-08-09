@@ -34,7 +34,8 @@
                         <th>Title</th>
                         <th>EAN/GTIN</th>
                         <th>Content</th>
-                        <th>Image</th>
+                        <th>Preview Image</th>
+                        <th colspan="3">Article Images</th>
                         <th>Previous Price</th>
                         <th>Purchase Price</th>
                         <th>RRP</th>
@@ -49,7 +50,7 @@
                     </thead>
                     <tfoot>
                     <tr>
-                        <td colspan="13">
+                        <td colspan="18">
                             <div class="d-flex flex-row align-items-end mt-5">
                                 <a href="{{ route('articles.edit', $article) }}"
                                    class="text-dark mr-4">Edit</a>
@@ -74,13 +75,20 @@
                         <td>{{ $article->description }}</td>
                         <td>
                             @if($article->preview_img && Storage::disk('public')->exists($article->preview_img))
-                                <img
-                                    src='{{ url('storage/' . $article->preview_img) }}'
-                                    alt='{{ $article->title }}'
-                                    style='height: 25px;'
-                                />
+                                <button
+                                    class="m-0 p-0 btn bg-transparent border-0"
+                                    onclick='window.open("{{ $article->imageUrl }}", "preview image", "width=700,height=550,top=100,left=200")'
+                                >
+                                    <img
+                                        src='{{ $article->imageUrl }}'
+                                        alt='{{ $article->title }}'
+                                        style='height: 25px;'
+
+                                    />
+                                </button>
                             @endif
                         </td>
+                        <td colspan="3"></td>
                         <td>{{ $article->previous_price }} &#8364;</td>
                         <td>{{ $article->purchase_price }} &#8364;</td>
                         <td>{{ $article->recommended_retail_price }} &#8364;</td>

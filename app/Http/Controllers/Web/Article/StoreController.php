@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Web\Article;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Article\StoreRequest;
-use App\Models\{Article, ArticleTag, ColorArticle};
+use App\Models\{Article, ArticleTag, ColorArticle, Image};
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\{DB, Log, Storage};
@@ -22,8 +22,16 @@ class StoreController extends Controller
 
             $data = $request->validated();
 
-            $previewImgPathName = Carbon::now()->timestamp . rand(10000000, 99999999) . '.' . $data['preview_img']->getClientOriginalExtension();
+            $imgBaseName = Carbon::now()->timestamp . rand(10000000, 99999999);
+            $previewImgPathName =  $imgBaseName . '.' . $data['preview_img']->getClientOriginalExtension();
             $data['preview_img'] = Storage::disk('public')->putFileAs('/images', $data['preview_img'], $previewImgPathName);
+
+            $articleImgIds = ['1', '2', '3'];
+            $articleImgs = [];
+            array_walk($articleImgIds, function($id) use($imgBaseName, $previewImgPathName, &$data, &$articleImgs) {
+                $articleImgs['article_img_'.$id] = Storage::disk('public')->putFileAs('/images/' . $imgBaseName, $data['article_img_'.$id], 'article_img_' . $id . '_' . $previewImgPathName);
+                unset($data['article_img_'.$id]);
+            });
 
             if (key_exists('tags', $data)) {
                 $tagsIds = $data['tags'];
@@ -53,6 +61,14 @@ class StoreController extends Controller
                         'article_id' => $article->id
                     ]);
                 }
+            }
+
+            if (!empty($articleImgs)) {
+                foreach($articleImgs as $articleImg)
+                Image::create([
+                    'img_path' => $articleImg,
+                    'article_id' => $article->id
+                ]);
             }
 
             DB::commit();

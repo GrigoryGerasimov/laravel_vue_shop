@@ -3,7 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\{Collection, Model, Relations\BelongsTo, Relations\BelongsToMany, SoftDeletes};
+use Illuminate\Database\Eloquent\{Collection,
+    Model,
+    Relations\BelongsTo,
+    Relations\BelongsToMany,
+    Relations\HasMany,
+    SoftDeletes};
 
 class Article extends Model
 {
@@ -25,6 +30,18 @@ class Article extends Model
     public function getImageUrlAttribute(): string
     {
         return url('storage/' . $this->preview_img);
+    }
+
+    /**
+     * @return array
+     */
+    public function getArticleImageUrlsAttribute(): array
+    {
+        return [
+            'image_1' => url('storage/'),
+            'image_2' => url('storage/'),
+            'image_3' => url('storage/')
+        ];
     }
 
     /**
@@ -73,5 +90,13 @@ class Article extends Model
     public function colors(): BelongsToMany
     {
         return $this->belongsToMany(Color::class, 'color_articles', 'article_id', 'color_id', 'id', 'id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class, 'article_id', 'id');
     }
 }
