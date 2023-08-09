@@ -11,4 +11,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function() {
     Route::group(['namespace' => 'Article', 'prefix' => 'articles'], function() {
         Route::get('/', 'IndexController')->name('api.articles.index');
     });
+
+    Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function() {
+        Route::get('/', 'IndexController')->name('api.categories.index');
+    });
+
+    Route::group(['namespace' => 'Color', 'prefix' => 'colors'], function() {
+        Route::get('/', 'IndexController')->name('api.colors.index');
+    });
 });
