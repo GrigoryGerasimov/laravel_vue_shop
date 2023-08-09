@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\Article;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Article\ArticleResource;
+use App\Http\Resources\Article\ArticleResourceWithGroup;
 use App\Models\Article;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -13,6 +13,6 @@ class IndexController extends Controller
     {
         $articlesList = Article::all();
 
-        return ArticleResource::collection($articlesList);
+        return ArticleResourceWithGroup::collection($articlesList);
     }
 }

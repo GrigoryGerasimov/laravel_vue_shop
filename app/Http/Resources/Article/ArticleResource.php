@@ -23,15 +23,15 @@ class ArticleResource extends JsonResource
             'description' => $this->description,
             'ean' => $this->ean,
             'content' => $this->content,
-            'preview_img' => $this->preview_img,
+            'preview_img' => $this->imageUrl,
             'previous_price' => $this->previous_price,
             'purchase_price' => $this->purchase_price,
             'recommended_retail_price' => $this->recommended_retail_price,
             'total_amount' => $this->total_amount,
             'is_published' => $this->is_published,
             'category' => new CategoryResource($this->category),
-            'tags' => TagResource::collection($this->tags),
-            'colors' => ColorResource::collection($this->colors),
+            'tags' => TagResource::collection($this->activeTags),
+            'colors' => ColorResource::collection($this->activeColors),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];
