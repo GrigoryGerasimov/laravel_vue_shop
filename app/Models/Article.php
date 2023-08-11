@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\{Collection,
     Relations\BelongsTo,
     Relations\BelongsToMany,
     Relations\HasMany,
-    SoftDeletes};
+    SoftDeletes
+};
 
 class Article extends Model
 {
@@ -37,11 +38,12 @@ class Article extends Model
      */
     public function getArticleImageUrlsAttribute(): array
     {
-        return [
-            'image_1' => url('storage/'),
-            'image_2' => url('storage/'),
-            'image_3' => url('storage/')
-        ];
+        $imagesArray = [];
+
+        foreach ($this->images as $image) {
+            $imagesArray[] = url('storage/' . $image->img_path);
+        }
+        return $imagesArray;
     }
 
     /**

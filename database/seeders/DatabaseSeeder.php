@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Country;
 use App\Models\Gender;
+use App\Models\ImageType;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -38,6 +39,16 @@ class DatabaseSeeder extends Seeder
         Country::create([
             'title' => 'France',
             'iso_alpha_2' => 'FR'
+        ]);
+
+        ImageType::create([
+            'title' => 'article_img_1'
+        ]);
+        ImageType::create([
+            'title' => 'article_img_2'
+        ]);
+        ImageType::create([
+            'title' => 'article_img_3'
         ]);
     }
 }
