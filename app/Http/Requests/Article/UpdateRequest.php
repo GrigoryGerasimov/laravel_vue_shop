@@ -40,7 +40,7 @@ class UpdateRequest extends FormRequest
             'purchase_price' => 'required|decimal:2',
             'recommended_retail_price' => 'required|decimal:2',
             'total_amount' => 'required|integer',
-            'unpublish' => 'nullable|string',
+            'is_published' => 'nullable|string',
             'category_id' => 'required|integer',
             'group_id' => 'required|integer',
             'tags' => 'nullable|array',

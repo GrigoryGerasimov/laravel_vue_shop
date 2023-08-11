@@ -17,7 +17,7 @@ class CreateController extends Controller
         $groupsList = Group::all();
         $tagsList = Tag::all();
         $colorsList = Color::all();
-        $articleImgTypes = ImageType::all();
+        $articleImgTypes = ImageType::all()->pluck('title')->toArray();
 
         return view('articles.create', compact('categoriesList', 'groupsList', 'tagsList', 'colorsList', 'articleImgTypes'));
     }

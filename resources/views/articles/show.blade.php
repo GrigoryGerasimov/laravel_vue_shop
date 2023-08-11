@@ -104,7 +104,11 @@
                                 @endforeach
                             @endif
                         </td>
-                        <td>{{ $article->previous_price }} &#8364;</td>
+                        <td>
+                            @if($article->previous_price)
+                                {{ $article->previous_price }} &#8364;
+                            @endif
+                        </td>
                         <td>{{ $article->purchase_price }} &#8364;</td>
                         <td>{{ $article->recommended_retail_price }} &#8364;</td>
                         <td>{{ $article->total_amount }}</td>
