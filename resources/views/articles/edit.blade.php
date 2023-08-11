@@ -25,18 +25,17 @@
             @csrf
             @method('patch')
 
-
             <div class='mt-5'>
                 <div class='custom-control custom-checkbox'>
                     <input
                         class='custom-control-input custom-control-input-dark custom-control-input-outline'
                         style='width: 350px'
                         type='checkbox'
-                        id='unpublish'
-                        name='unpublish'
-                        {{ !$article->is_published ? 'checked' : '' }}
+                        id='is_published'
+                        name='is_published'
+                        {{ $article->is_published ? 'checked' : '' }}
                     >
-                    <label for='unpublish' class='custom-control-label text-sm'>Unpublish</label>
+                    <label for='is_published' class='custom-control-label text-sm'>Is Published</label>
                 </div>
             </div>
 
@@ -142,38 +141,72 @@
                 @enderror
             </div>
 
-            @foreach($article->images as $articleImage)
-                <div class='my-3'>
-                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
-                        <label for='{{ $articleImage->imageType->title }}' class='text-sm' style='width: 120px'>{{ ucwords(str_replace(['_', 'img'], [' ', 'image'], $articleImage->imageType->title)) }}</label>
-                        <div class='input-group' style='width: 350px'>
-                            <div class='custom-file'>
-                                <input
-                                    type='file'
-                                    class='custom-file-input @error($articleImage->imageType->title) is-invalid @enderror'
-                                    id='{{ $articleImage->imageType->title }}'
-                                    name='{{ $articleImage->imageType->title }}'
-                                />
-                                <label class='custom-file-label' for='{{ $articleImage->imageType->title }}'>choose file</label>
+            @if($article->images->isEmpty())
+
+                @foreach($articleImgTypes as $articleImgType)
+                    <div class='my-3'>
+                        <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                            <label for='{{ $articleImgType }}' class='text-sm' style='width: 120px'>{{ ucwords(str_replace(['_', 'img'], [' ', 'image'], $articleImgType)) }}</label>
+                            <div class='input-group' style='width: 350px'>
+                                <div class='custom-file'>
+                                    <input
+                                        type='file'
+                                        class='custom-file-input @error($articleImgType) is-invalid @enderror'
+                                        id='{{ $articleImgType }}'
+                                        name='{{ $articleImgType }}'
+                                    />
+                                    <label class='custom-file-label' for='{{ $articleImgType }}'>choose file</label>
+                                </div>
+                                <div class='input-group-append'>
+                                    <span class='input-group-text'>Upload</span>
+                                </div>
                             </div>
-                            <div class='input-group-append'>
-                                <span class='input-group-text'>Upload</span>
-                            </div>
+                            <strong class='ml-2 text-danger'>*</strong>
                         </div>
-                        <strong class='ml-2 text-danger'>*</strong>
+                        @error($articleImgType)
+                        <p class='text-danger mt-3'>{{ $message }}</p>
+                        @enderror
                     </div>
-                    @if($articleImage->img_path && Storage::disk('public')->exists($articleImage->img_path))
-                        <img
-                            src='{{ url('storage/' .  $articleImage->img_path) }}'
-                            alt='{{ $articleImage->img_type }}'
-                            style='width: 350px; margin-left: 120px'
-                        />
-                    @endif
-                    @error($articleImage->imageType->title)
-                    <p class='text-danger mt-3'>{{ $message }}</p>
-                    @enderror
-                </div>
-            @endforeach
+                @endforeach
+
+            @else
+
+                @foreach($article->images()->orderBy('img_type_id')->get() as $articleImage)
+                    <div class='my-3'>
+                        <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                            <label for='{{ $articleImage->imageType->title }}' class='text-sm'
+                                   style='width: 120px'>{{ ucwords(str_replace(['_', 'img'], [' ', 'image'], $articleImage->imageType->title)) }}</label>
+                            <div class='input-group' style='width: 350px'>
+                                <div class='custom-file'>
+                                    <input
+                                        type='file'
+                                        class='custom-file-input @error($articleImage->imageType->title) is-invalid @enderror'
+                                        id='{{ $articleImage->imageType->title }}'
+                                        name='{{ $articleImage->imageType->title }}'
+                                    />
+                                    <label class='custom-file-label' for='{{ $articleImage->imageType->title }}'>choose
+                                        file</label>
+                                </div>
+                                <div class='input-group-append'>
+                                    <span class='input-group-text'>Upload</span>
+                                </div>
+                            </div>
+                            <strong class='ml-2 text-danger'>*</strong>
+                        </div>
+                        @if($articleImage->img_path && Storage::disk('public')->exists($articleImage->img_path))
+                            <img
+                                src='{{ url('storage/' .  $articleImage->img_path) }}'
+                                alt='{{ $articleImage->img_type }}'
+                                style='width: 350px; margin-left: 120px'
+                            />
+                        @endif
+                        @error($articleImage->imageType->title)
+                        <p class='text-danger mt-3'>{{ $message }}</p>
+                        @enderror
+                    </div>
+                @endforeach
+
+            @endif
 
             <div class='my-3'>
                 <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>

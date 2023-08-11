@@ -122,16 +122,16 @@
             @foreach($articleImgTypes as $articleImgType)
                 <div class='my-3'>
                     <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
-                        <label for='{{ $articleImgType->title }}' class='text-sm' style='width: 120px'>{{ ucwords(str_replace(['_', 'img'], [' ', 'image'], $articleImgType->title)) }}</label>
+                        <label for='{{ $articleImgType }}' class='text-sm' style='width: 120px'>{{ ucwords(str_replace(['_', 'img'], [' ', 'image'], $articleImgType)) }}</label>
                         <div class='input-group' style='width: 350px'>
                             <div class='custom-file'>
                                 <input
                                     type='file'
-                                    class='custom-file-input @error($articleImgType->title) is-invalid @enderror'
-                                    id='{{ $articleImgType->title }}'
-                                    name='{{ $articleImgType->title }}'
+                                    class='custom-file-input @error($articleImgType) is-invalid @enderror'
+                                    id='{{ $articleImgType }}'
+                                    name='{{ $articleImgType }}'
                                 />
-                                <label class='custom-file-label' for='{{ $articleImgType->title }}'>choose file</label>
+                                <label class='custom-file-label' for='{{ $articleImgType }}'>choose file</label>
                             </div>
                             <div class='input-group-append'>
                                 <span class='input-group-text'>Upload</span>
@@ -139,7 +139,7 @@
                         </div>
                         <strong class='ml-2 text-danger'>*</strong>
                     </div>
-                    @error($articleImgType->title)
+                    @error($articleImgType)
                     <p class='text-danger mt-3'>{{ $message }}</p>
                     @enderror
                 </div>

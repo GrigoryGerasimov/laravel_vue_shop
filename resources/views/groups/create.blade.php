@@ -28,7 +28,7 @@
                 <div class='input-group w-50'>
                     <div class='input-group-prepend'>
                     <span class='input-group-text'>
-                        <i class="fas fa-th-list"></i>
+                        <i class="nav-icon fas fa-layer-group"></i>
                     </span>
                     </div>
                     <input class='form-control @error('title') is-invalid @enderror' id='title' name='title'

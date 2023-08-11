@@ -26,7 +26,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('groups.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th-list"></i>
+                        <i class="nav-icon fas fa-layer-group"></i>
                         <p>Groups</p>
                     </a>
                 </li>
