@@ -88,7 +88,22 @@
                                 </button>
                             @endif
                         </td>
-                        <td colspan="3"></td>
+                        <td colspan="3">
+                            @if($article->images)
+                                @foreach($article->articleImageUrls as $articleImageUrl)
+                                    <button
+                                        class="m-0 p-0 btn bg-transparent border-0"
+                                        onclick='window.open("{{ $articleImageUrl }}", "preview image", "width=700,height=550,top=100,left=200")'
+                                    >
+                                        <img
+                                            src='{{ $articleImageUrl }}'
+                                            alt='{{ $article->title }}'
+                                            style='height: 25px;'
+                                        />
+                                    </button>
+                                @endforeach
+                            @endif
+                        </td>
                         <td>{{ $article->previous_price }} &#8364;</td>
                         <td>{{ $article->purchase_price }} &#8364;</td>
                         <td>{{ $article->recommended_retail_price }} &#8364;</td>

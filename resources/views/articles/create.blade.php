@@ -119,77 +119,31 @@
                 @enderror
             </div>
 
-            <div class='my-3'>
-                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
-                    <label for='article_img_1' class='text-sm' style='width: 120px'>Article Image 1</label>
-                    <div class='input-group' style='width: 350px'>
-                        <div class='custom-file'>
-                            <input
-                                type='file'
-                                class='custom-file-input @error('article_img_1') is-invalid @enderror'
-                                id='article_img_1'
-                                name='article_img_1'
-                            />
-                            <label class='custom-file-label' for='article_img_1'>choose file</label>
+            @foreach($articleImgTypes as $articleImgType)
+                <div class='my-3'>
+                    <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
+                        <label for='{{ $articleImgType->title }}' class='text-sm' style='width: 120px'>{{ ucwords(str_replace(['_', 'img'], [' ', 'image'], $articleImgType->title)) }}</label>
+                        <div class='input-group' style='width: 350px'>
+                            <div class='custom-file'>
+                                <input
+                                    type='file'
+                                    class='custom-file-input @error($articleImgType->title) is-invalid @enderror'
+                                    id='{{ $articleImgType->title }}'
+                                    name='{{ $articleImgType->title }}'
+                                />
+                                <label class='custom-file-label' for='{{ $articleImgType->title }}'>choose file</label>
+                            </div>
+                            <div class='input-group-append'>
+                                <span class='input-group-text'>Upload</span>
+                            </div>
                         </div>
-                        <div class='input-group-append'>
-                            <span class='input-group-text'>Upload</span>
-                        </div>
+                        <strong class='ml-2 text-danger'>*</strong>
                     </div>
-                    <strong class='ml-2 text-danger'>*</strong>
+                    @error($articleImgType->title)
+                    <p class='text-danger mt-3'>{{ $message }}</p>
+                    @enderror
                 </div>
-                @error('article_img_1')
-                <p class='text-danger mt-3'>{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class='my-3'>
-                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
-                    <label for='article_img_2' class='text-sm' style='width: 120px'>Article Image 2</label>
-                    <div class='input-group' style='width: 350px'>
-                        <div class='custom-file'>
-                            <input
-                                type='file'
-                                class='custom-file-input @error('article_img_2') is-invalid @enderror'
-                                id='article_img_2'
-                                name='article_img_2'
-                            />
-                            <label class='custom-file-label' for='article_img_2'>choose file</label>
-                        </div>
-                        <div class='input-group-append'>
-                            <span class='input-group-text'>Upload</span>
-                        </div>
-                    </div>
-                    <strong class='ml-2 text-danger'>*</strong>
-                </div>
-                @error('article_img_2')
-                <p class='text-danger mt-3'>{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class='my-3'>
-                <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>
-                    <label for='article_img_3' class='text-sm' style='width: 120px'>Article Image 3</label>
-                    <div class='input-group' style='width: 350px'>
-                        <div class='custom-file'>
-                            <input
-                                type='file'
-                                class='custom-file-input @error('article_img_3') is-invalid @enderror'
-                                id='article_img_3'
-                                name='article_img_3'
-                            />
-                            <label class='custom-file-label' for='article_img_3'>choose file</label>
-                        </div>
-                        <div class='input-group-append'>
-                            <span class='input-group-text'>Upload</span>
-                        </div>
-                    </div>
-                    <strong class='ml-2 text-danger'>*</strong>
-                </div>
-                @error('article_img_3')
-                <p class='text-danger mt-3'>{{ $message }}</p>
-                @enderror
-            </div>
+            @endforeach
 
             <div class='my-3'>
                 <div class='form-group d-flex flex-row flex-wrap align-items-baseline'>

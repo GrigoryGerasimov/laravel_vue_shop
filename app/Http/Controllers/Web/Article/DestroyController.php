@@ -18,10 +18,22 @@ class DestroyController extends Controller
         try {
             DB::beginTransaction();
 
-            Storage::disk('public')->delete($article->preview_img);
+            if (Storage::disk('public')->exists($article->preview_img)) {
+                Storage::disk('public')->delete($article->preview_img);
+            }
 
-            ArticleTag::where(['article_id' => $article->id])->each(function($position) { $position->delete(); });
-            ColorArticle::where(['article_id' => $article->id])->each(function($position) { $position->delete(); });
+            foreach ($article->images as $articleImage) {
+                if (Storage::disk('public')->exists($articleImage->img_path)) {
+                    Storage::disk('public')->delete($articleImage->img_path);
+                }
+            }
+
+            ArticleTag::where(['article_id' => $article->id])->each(function ($position) {
+                $position->delete();
+            });
+            ColorArticle::where(['article_id' => $article->id])->each(function ($position) {
+                $position->delete();
+            });
 
             $isDeleted = $article->delete();
 
