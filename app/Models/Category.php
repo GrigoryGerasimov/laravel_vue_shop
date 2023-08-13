@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\{Model, SoftDeletes};
+use Illuminate\Database\Eloquent\{Model, Relations\HasMany, SoftDeletes};
 
 class Category extends Model
 {
@@ -18,4 +18,12 @@ class Category extends Model
      * @var bool
      */
     protected $guarded = false;
+
+    /**
+     * @return HasMany
+     */
+    public function articles(): HasMany
+    {
+        return $this->hasMany(Article::class, 'category_id', 'id');
+    }
 }

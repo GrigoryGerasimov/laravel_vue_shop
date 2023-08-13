@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Filters\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Collection,
     Model,
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\{Collection,
 
 class Article extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, Filterable;
 
     /**
      * @var string

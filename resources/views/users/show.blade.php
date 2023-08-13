@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card p-3">
             <div class="card-header">
                 <h3 class="card-title">{{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</h3>
             </div>
