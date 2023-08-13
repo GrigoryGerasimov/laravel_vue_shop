@@ -10,6 +10,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['namespace' => 'App\Http\Controllers\Api'], function() {
     Route::group(['namespace' => 'Article', 'prefix' => 'articles'], function() {
         Route::get('/', 'IndexController')->name('api.articles.index');
+        Route::post('/filtered', 'FilterController')->name('api.articles.filtered');
         Route::get('/{article}', 'ShowController')->name('api.articles.show');
     });
 
@@ -19,5 +20,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function() {
 
     Route::group(['namespace' => 'Color', 'prefix' => 'colors'], function() {
         Route::get('/', 'IndexController')->name('api.colors.index');
+    });
+
+    Route::group(['namespace' => 'Filter', 'prefix' => 'filterlists'], function() {
+        Route::get('/', 'IndexController')->name('api.filters.index');
     });
 });
