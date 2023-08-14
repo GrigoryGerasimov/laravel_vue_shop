@@ -25,7 +25,8 @@ class FilterRequest extends FormRequest
             'category' => 'nullable|array',
             'color' => 'nullable|array',
             'price' => 'nullable|array',
-            'tag' => 'nullable|array'
+            'tag' => 'nullable|array',
+            'pageId' => 'nullable|integer'
         ];
     }
 }
