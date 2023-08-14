@@ -13,11 +13,12 @@ class FilterController extends Controller
 {
     public function __invoke(FilterRequest $request): AnonymousResourceCollection
     {
-        $filterParams = $request->validated();
+        $data = $request->validated();
+        $page = $data['pageId'] ?? null;
 
-        $filteredData = app()->make(ArticleFilter::class, ['queryParams' => $filterParams]);
+        $filteredData = app()->make(ArticleFilter::class, ['queryParams' => array_filter($data)]);
 
-        $filtered = Article::filter($filteredData)->get();
+        $filtered = Article::filter($filteredData)->paginate(3, ['*'], 'page', $page);
 
         return ArticleResourceWithGroup::collection($filtered);
     }
