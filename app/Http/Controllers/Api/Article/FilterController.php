@@ -14,11 +14,14 @@ class FilterController extends Controller
     public function __invoke(FilterRequest $request): AnonymousResourceCollection
     {
         $data = $request->validated();
+        $itemsPerPage = !isset($data['itemsPerPage']) || !$data['itemsPerPage'] ? 3 : $data['itemsPerPage'];
         $page = $data['pageId'] ?? null;
+        $col = $data['col'] ?? 'title';
+        $dir = $data['dir'] ?? 'asc';
 
         $filteredData = app()->make(ArticleFilter::class, ['queryParams' => array_filter($data)]);
 
-        $filtered = Article::filter($filteredData)->paginate(3, ['*'], 'page', $page);
+        $filtered = Article::filter($filteredData)->orderBy($col, $dir)->paginate($itemsPerPage, ['*'], 'page', $page);
 
         return ArticleResourceWithGroup::collection($filtered);
     }
