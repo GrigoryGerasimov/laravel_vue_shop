@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Category;
 
-use App\Http\Resources\Article\ArticleResource;
+use App\Http\Resources\Article\ArticleResourceForCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -18,7 +18,8 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'preview_img' => $this->articles->first()->imageUrl
+            'preview_img' => $this->articles->first()->imageUrl,
+            'articles' => ArticleResourceForCategory::collection($this->articles)
         ];
     }
 }
