@@ -19,7 +19,7 @@ export default {
                   </router-link>
                 </li>
                 <li> <i class="flaticon-next"></i> </li>
-                <li class="active">Cart</li>
+                <li class="active">{{ this.$route.name }}</li>
               </ul>
             </div>
           </div>

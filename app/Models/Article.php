@@ -68,7 +68,7 @@ class Article extends Model
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -76,7 +76,7 @@ class Article extends Model
      */
     public function group(): BelongsTo
     {
-        return $this->belongsTo(Group::class, 'group_id', 'id');
+        return $this->belongsTo(Group::class);
     }
 
     /**
@@ -101,5 +101,13 @@ class Article extends Model
     public function images(): HasMany
     {
         return $this->hasMany(Image::class, 'article_id', 'id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function sizeScale(): BelongsTo
+    {
+        return $this->belongsTo(SizeScale::class);
     }
 }

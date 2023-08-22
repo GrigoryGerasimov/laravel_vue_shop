@@ -14,7 +14,7 @@ class SearchController extends Controller
         $data = $request->validated();
         $searchedTitle = $data['title'];
 
-        $article = Article::query()->where('title', 'like', "%$searchedTitle%")->first();
+        $article = Article::query()->where('is_published', '=', true, 'and', 'title', 'like', "%$searchedTitle%")->first();
 
         return isset($article) ? new ArticleResourceWithGroup($article) : null;
     }

@@ -4,6 +4,7 @@ namespace App\Http\Resources\Article;
 
 use App\Http\Resources\Category\CategoryResource;
 use App\Http\Resources\Color\ColorResource;
+use App\Http\Resources\SizeScale\SizeScaleResource;
 use App\Http\Resources\Tag\TagResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -31,6 +32,7 @@ class ArticleResource extends JsonResource
             'total_amount' => $this->total_amount,
             'is_published' => $this->is_published,
             'category' => new CategoryResource($this->category),
+            'size_scale' => new SizeScaleResource($this->sizeScale),
             'tags' => TagResource::collection($this->activeTags),
             'colors' => ColorResource::collection($this->activeColors),
             'created_at' => $this->created_at,

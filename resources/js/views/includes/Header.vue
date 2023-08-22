@@ -1,7 +1,7 @@
 <script>
 import { defineComponent } from 'vue'
 import CartQuickView from '../CartPage/CartQuickView.vue'
-import router from '@/router'
+import router from '../../router'
 
 export default defineComponent({
   name: 'Header',
@@ -127,8 +127,12 @@ export default defineComponent({
                     </li>
                   </ul>
                 </li>
-                <li><a href="login.html">Login </a></li>
-                <li><a href="register.html">Register </a></li>
+                <li>
+                    <router-link :to="{ name: 'Login' }">Sign In</router-link>
+                </li>
+                <li>
+                    <router-link :to="{ name: 'Register' }">Sign Up</router-link>
+                </li>
               </ul>
             </div>
           </div>
@@ -153,7 +157,9 @@ export default defineComponent({
                       </span>Welcome to Shoppy Online Shop - Your Best Guide in Fashion Streetwear World
                     </p>
                     <div class="right d-flex align-items-center ">
-                      <a href="login.html">Sign In / Register</a>
+                      <router-link :to="{ name: 'Login' }">
+                          Sign In / Sign Up
+                      </router-link>
                     </div>
                   </div>
                 </div>
@@ -186,18 +192,19 @@ export default defineComponent({
                                 </a>
                                 <ul class="submenu">
                                   <li v-for="article in category.articles">
-                                    <router-link :to="{ name: 'Article', params: { id: article.id } }">{{
-                                        article.title
-                                      }}
+                                    <router-link :to="{ name: 'Article', params: { id: article.id } }">
+                                        {{ article.title }}
                                     </router-link>
                                   </li>
                                 </ul>
                               </li>
                             </ul>
                           </li>
-
-
-
+                            <li class="dropdown-list">
+                                <a href="/admin">
+                                    <span>Admin</span>
+                                </a>
+                            </li>
                         </ul>
                       </nav>
 
