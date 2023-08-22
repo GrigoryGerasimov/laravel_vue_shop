@@ -136,6 +136,7 @@
                             type='number'
                             id='age'
                             name='age'
+                            min="18"
                             value='{{ old('age') }}'
                             placeholder='age'/>
                     </div>

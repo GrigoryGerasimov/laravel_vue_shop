@@ -1,8 +1,10 @@
 <script>
-import CartPageBreadcrumbs from './CartPageBreadcrumbs.vue'
-import CartReservedUnitsTable from './CartReservedUnitsTable.vue'
-import CartPageActions from './CartPageActions.vue'
-import CartTotals from './CartTotals.vue'
+import {
+    CartPageBreadcrumbs,
+    CartReservedUnitsTable,
+    CartPageActions,
+    CartTotals
+} from './compounds'
 
 export default {
   name: 'Cart',

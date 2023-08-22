@@ -18,7 +18,7 @@ class GroupResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'articles' => ArticleResource::collection($this->articles),
+            'articles' => ArticleResource::collection($this->publishedArticles()),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

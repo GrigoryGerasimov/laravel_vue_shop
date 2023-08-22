@@ -18,8 +18,8 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'preview_img' => $this->articles->first()->imageUrl,
-            'articles' => ArticleResourceForCategory::collection($this->articles)
+            'preview_img' => $this->publishedArticles()->first()->imageUrl,
+            'articles' => ArticleResourceForCategory::collection($this->publishedArticles())
         ];
     }
 }

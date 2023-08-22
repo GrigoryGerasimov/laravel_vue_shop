@@ -21,7 +21,7 @@ class FilterController extends Controller
 
         $filteredData = app()->make(ArticleFilter::class, ['queryParams' => array_filter($data)]);
 
-        $filtered = Article::filter($filteredData)->orderBy($col, $dir)->paginate($itemsPerPage, ['*'], 'page', $page);
+        $filtered = Article::query()->where(['is_published' => true])->filter($filteredData)->orderBy($col, $dir)->paginate($itemsPerPage, ['*'], 'page', $page);
 
         return ArticleResourceWithGroup::collection($filtered);
     }
