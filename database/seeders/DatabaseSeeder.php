@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use App\Models\Country;
 use App\Models\Gender;
 use App\Models\ImageType;
+use App\Models\Size;
+use App\Models\SizeScale;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -49,6 +51,57 @@ class DatabaseSeeder extends Seeder
         ]);
         ImageType::create([
             'title' => 'article_img_3'
+        ]);
+
+        SizeScale::create([
+            'title' => 'Regular Collection Scale',
+            'slug' => 'regular'
+        ]);
+        SizeScale::create([
+            'title' => 'Plus Collection Scale',
+            'slug' => 'plus'
+        ]);
+
+        Size::create([
+            'slug' => 'xs',
+            'scale_id' => '1',
+        ]);
+        Size::create([
+            'slug' => 's',
+            'scale_id' => '1',
+        ]);
+        Size::create([
+            'slug' => 'm',
+            'scale_id' => '1',
+        ]);
+        Size::create([
+            'slug' => 'l',
+            'scale_id' => '1',
+        ]);
+        Size::create([
+            'slug' => 'xl',
+            'scale_id' => '1',
+        ]);
+        Size::create([
+            'slug' => 'xxl',
+            'scale_id' => '1',
+        ]);
+
+        Size::create([
+            'slug' => '44',
+            'scale_id' => '2',
+        ]);
+        Size::create([
+            'slug' => '46',
+            'scale_id' => '2',
+        ]);
+        Size::create([
+            'slug' => '48',
+            'scale_id' => '2',
+        ]);
+        Size::create([
+            'slug' => '50',
+            'scale_id' => '2',
         ]);
     }
 }

@@ -42,6 +42,7 @@
                         <th>Amount</th>
                         <th>Category</th>
                         <th>Product Group</th>
+                        <th>Size Scale</th>
                         <th>Colors</th>
                         <th>Tags</th>
                         <th>Created At</th>
@@ -114,6 +115,11 @@
                         <td>{{ $article->total_amount }}</td>
                         <td>{{ $article->category->title }}</td>
                         <td>{{ $article->group->title }}</td>
+                        <td>
+                            @if($article->sizeScale)
+                                {{ $article->sizeScale->slug }}
+                            @endif
+                        </td>
                         <td>
                             {{ substr($article->activeColors->reduce(function($acc, $val) { return $acc . ', ' . $val->title; }), 2) }}
                         </td>

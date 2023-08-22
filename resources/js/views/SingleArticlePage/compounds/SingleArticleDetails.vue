@@ -1,22 +1,48 @@
 <script>
 export default {
-  name: 'SingleArticleDetails',
+    name: 'SingleArticleDetails',
 
-  props: {
-    article: Object,
-    getArticleVariant: Function
-  },
+    props: {
+        article: Object,
+        getArticleVariant: Function
+    },
 
-  inject: ['qtyToReserve', 'updateQtyToReserve', 'incrementQtyToReserve', 'decrementQtyToReserve', 'reserveQty'],
+    data() {
+      return {
+          size: null
+      }
+    },
 
-  methods: {
-    countUpVAT: (netValue, vatPercentageValue = 0.19) => netValue * vatPercentageValue,
+    watch: {
+        article: {
+            handler() {
+                this.size = this.article.size_scale.slug === 'regular' ? 'm' : '44'
+            }
+        }
+    },
 
-    countUpTotalGross(netValue) {
-      netValue = typeof netValue !== 'number' ? Number(netValue) : netValue
-      return netValue + this.countUpVAT(netValue)
+    inject: ['qtyToReserve', 'updateQtyToReserve', 'incrementQtyToReserve', 'decrementQtyToReserve', 'reserveQty'],
+
+    methods: {
+        countUpVAT: (netValue, vatPercentageValue = 0.19) => netValue * vatPercentageValue,
+
+        countUpTotalGross(netValue) {
+            netValue = typeof netValue !== 'number' ? Number(netValue) : netValue
+            return netValue + this.countUpVAT(netValue)
+        },
+
+        handleSizeSelection(slug) {
+            this.size = slug
+        },
+
+        handleQtyReservation(article, size, qty) {
+            this.reserveQty(article, size, qty)
+        }
+    },
+
+    mounted() {
+        this.size = this.article.size_scale.slug === 'regular' ? 'm' : '44'
     }
-  }
 }
 </script>
 
@@ -40,13 +66,12 @@ export default {
         </div>
 
         <div class="shop-details-top-size-box">
-          <h4>Size: (XS)</h4>
+          <h4>Size: <strong v-if="size">{{ size.toUpperCase() }}</strong></h4>
           <div class="shop-details-top-size-list-box">
             <ul class="shop-details-top-size-list">
-              <li>XS</li>
-              <li>S</li>
-              <li>M</li>
-              <li>XL</li>
+              <li v-for="size in article.size_scale.sizes">
+                  <a role="button" @click.prevent="handleSizeSelection(size.slug)">{{ size.slug }}</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -102,7 +127,7 @@ export default {
           <button
               class="btn--primary style2 "
               type="submit"
-              @click.prevent="reserveQty(article, Number(this.$refs.qtyToOrder.value))"
+              @click.prevent="handleQtyReservation(article, size, Number(this.$refs.qtyToOrder.value))"
           >
             Add to Cart
           </button>

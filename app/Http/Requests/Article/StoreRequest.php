@@ -34,6 +34,7 @@ class StoreRequest extends FormRequest
             'recommended_retail_price' => 'required|decimal:2',
             'total_amount' => 'required|integer',
             'category_id' => 'required|integer',
+            'size_scale_id' => 'nullable|integer',
             'group_id' => 'required|integer',
             'tags' => 'nullable|array',
             'colors' => 'nullable|array'
