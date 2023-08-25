@@ -28,8 +28,8 @@ class UpdateController extends Controller
             $data['is_published'] = key_exists('is_published', $data) && $data['is_published'] === 'on';
 
             UpdateImageService::dispatch($data, $article);
-            UpdateTagService::dispatch($data, $article->id);
-            UpdateColorService::dispatch($data, $article->id);
+            UpdateTagService::dispatch($data, $article);
+            UpdateColorService::dispatch($data, $article);
 
             $article->update($data);
 

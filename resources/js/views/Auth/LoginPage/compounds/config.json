@@ -1,0 +1,16 @@
+{
+    "email": {
+        "isRequired": {
+            "message": "Please provide your email"
+        },
+        "isEmail": {
+            "message": "Your input does not match the correct email format"
+        }
+    },
+
+    "password": {
+        "isRequired": {
+            "message": "Please provide your password"
+        }
+    }
+}

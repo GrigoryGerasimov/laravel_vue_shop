@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace App\Http\Services\ImageService;
 
-use App\Models\{Article, Image, ImageType};
+use App\Http\Services\AbstractUpdatingService;
+use App\Models\{Image, ImageType};
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-final class UpdateImageService
+final class UpdateImageService extends AbstractUpdatingService
 {
-    public static function dispatch(&$data, Article $article): void
+    public static function dispatch(array &$data, Model $model): void
     {
         $articleImgs = [];
 
-        preg_match('/\/(\d+)\//', $article->preview_img, $matches);
+        preg_match('/\/(\d+)\//', $model->preview_img, $matches);
 
         if (isset($matches[1])) {
             $existingImgName = $matches[1];
@@ -23,7 +25,7 @@ final class UpdateImageService
             $newImgName = $existingImgName . '_' . time();
 
             if (key_exists('preview_img', $data)) {
-                Storage::disk('public')->delete($article->preview_img);
+                Storage::disk('public')->delete($model->preview_img);
                 $data['preview_img'] = Storage::disk('public')->putFileAs('/images/' . $existingImgName, $data['preview_img'], $newImgName . '.' . $data['preview_img']->getClientOriginalExtension());
             }
 
@@ -31,7 +33,7 @@ final class UpdateImageService
 
             foreach($articleImgTypes as $articleImgType) {
                 if (key_exists($articleImgType, $data)) {
-                    $currentArticleImage = $article->images()->where(['img_type_id' => ImageType::where(['title' => $articleImgType])->first()->id])->first();
+                    $currentArticleImage = $model->images()->where(['img_type_id' => ImageType::where(['title' => $articleImgType])->first()->id])->first();
                     if (isset($currentArticleImage)) {
                         $currentArticleImage->delete();
                         Storage::disk('public')->delete($currentArticleImage->img_path);
@@ -49,7 +51,7 @@ final class UpdateImageService
                 Image::firstOrCreate(['img_path' => $articleImg], [
                     'img_type_id' => $articleImageType->id,
                     'img_path' => $articleImg,
-                    'article_id' => $article->id
+                    'article_id' => $model->id
                 ]);
             }
         }
