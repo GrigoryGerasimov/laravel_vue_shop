@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Services\TagService;
 
+use App\Http\Services\AbstractMetaEntityStoringService;
 use App\Models\ArticleTag;
+use Illuminate\Database\Eloquent\Model;
 
-final class StoreTagService
+final class StoreTagService extends AbstractMetaEntityStoringService
 {
-    public static function save(&$data): array|null
+    public static function save(array &$data): array|null
     {
         if (key_exists('tags', $data)) {
             $tagsIds = $data['tags'];
@@ -18,12 +20,12 @@ final class StoreTagService
         return $tagsIds ?? null;
     }
 
-    public static function store(array $tagsIds, string $articleId): void
+    public static function store(array $ids, Model $model): void
     {
-        foreach ($tagsIds as $tagsId) {
+        foreach ($ids as $tagsId) {
             ArticleTag::create([
                 'tag_id' => $tagsId,
-                'article_id' => $articleId
+                'article_id' => $model->id
             ]);
         }
     }

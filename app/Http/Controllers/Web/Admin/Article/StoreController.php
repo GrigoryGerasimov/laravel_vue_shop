@@ -31,13 +31,13 @@ class StoreController extends Controller
             $article = Article::firstOrCreate(['ean' => $data['ean']], $data);
 
             if (!is_null($tagsIds)) {
-                StoreTagService::store($tagsIds, $article->id);
+                StoreTagService::store($tagsIds, $article);
             }
             if(!is_null($colorsIds)) {
-                StoreColorService::store($colorsIds, $article->id);
+                StoreColorService::store($colorsIds, $article);
             }
             if(!empty($articleImgs)) {
-                StoreImageService::store($articleImgs, $article->id);
+                StoreImageService::store($articleImgs, $article);
             }
 
             DB::commit();
