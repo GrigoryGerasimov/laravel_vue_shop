@@ -1,0 +1,91 @@
+{
+    "firstName": {
+        "isRequired": {
+            "message": "Please provide your first name"
+        }
+    },
+
+    "lastName": {
+        "isRequired": {
+            "message": "Please provide your last name"
+        }
+    },
+
+    "email": {
+        "isRequired": {
+            "message": "Please provide your email"
+        },
+        "isEmail": {
+            "message": "Your input does not match the correct email format"
+        }
+    },
+
+    "password": {
+        "isRequired": {
+            "message": "Please provide your password"
+        }
+    },
+
+    "passwordConfirmation": {
+        "isRequired": {
+            "message": "Please confirm your password"
+        },
+        "isConfirmed": {
+            "message": "The password to be confirmed does not match your password"
+        }
+    },
+
+    "age": {
+        "isRequired": {
+            "message": "Please provide your age"
+        }
+    },
+
+    "genderId": {
+        "isRequired": {
+            "message": "Please provide your gender"
+        }
+    },
+
+    "countryId": {
+        "isRequired": {
+            "message": "Please provide your nationality"
+        }
+    },
+
+    "addressLine1": {
+        "isRequired": {
+            "message": "Please provide your address"
+        }
+    },
+
+    "streetNumber": {
+        "isRequired": {
+            "message": "Please provide your street nr"
+        }
+    },
+
+    "city": {
+        "isRequired": {
+            "message": "Please provide your city"
+        }
+    },
+
+    "postalCode": {
+        "isRequired": {
+            "message": "Please provide your postal code"
+        }
+    },
+
+    "addressCountryId": {
+        "isRequired": {
+            "message": "Please provide your address country"
+        }
+    },
+
+    "confirmSubmit": {
+        "isRequired": {
+            "message": "Please confirm before submitting"
+        }
+    }
+}

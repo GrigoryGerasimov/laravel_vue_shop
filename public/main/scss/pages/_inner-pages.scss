@@ -1,16 +1,16 @@
-/*** 
+/***
 =====================================================
 Imnner Pages Csss
 =====================================================
 ***/
 
-/*** 
+/***
 =====================================================
 breadcrumb-area start
 =====================================================
 ***/
 .breadcrumb-area {
-    padding: 100px 0px 100px; 
+    padding: 100px 0px 100px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,10 +20,10 @@ breadcrumb-area start
         top: 0px;
         left: 0px;
         height: 100%;
-        width: 100%; 
-        content: ''; 
+        width: 100%;
+        content: '';
         background: rgba(0, 0, 0, 0.4);
-        z-index: 1; 
+        z-index: 1;
     }
 }
 
@@ -32,11 +32,11 @@ breadcrumb-area start
     z-index: 9;
     h2 {
         padding-bottom: 12px;
-        color: var(--thm-white); 
+        color: var(--thm-white);
     }
 }
 .breadcrumb-area .author-details h6{
-    color: var(--thm-white);  
+    color: var(--thm-white);
 }
 
 .breadcrumb-menu {
@@ -97,7 +97,7 @@ breadcrumb-area start
 
 
 
-/*** 
+/***
 =====================================================
 pagination start
 =====================================================
@@ -162,7 +162,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
     About One Css
 =============================================
@@ -319,7 +319,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
         Mission One Css
 =============================================
@@ -492,7 +492,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
     Team Css
 =============================================
@@ -642,7 +642,7 @@ pagination start
 }
 
 
-/*** 
+/***
 =============================================
     Video Three Css
 =============================================
@@ -796,7 +796,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
     Order Track Css
 =============================================
@@ -874,7 +874,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
     My Account Page Css
 =============================================
@@ -967,7 +967,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
     login-register-form Css
 =============================================
@@ -1003,7 +1003,6 @@ pagination start
 
         input {
             background: var(--thm-white);
-            border: 0px;
         }
     }
 
@@ -1109,21 +1108,21 @@ pagination start
         padding: 96px 80px 100px;
 
         .top-title {
-            padding-bottom: 46px; 
+            padding-bottom: 46px;
 
             p {
                 padding-top: 16px;
             }
         }
-    } 
+    }
 }
 
 
 
 
-/*** 
+/***
 =============================================
-    Error Page    
+    Error Page
 =============================================
 ***/
 .error-page {
@@ -1131,35 +1130,35 @@ pagination start
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+}
 
 .error-page__content h3 {
     margin: 27px 0px 11px;
 }
 
 .error-page__content p {
-    font-size: 18px; 
+    font-size: 18px;
     font-family: var(--font-heading-family);
     color: var(--thm-gray);
 }
 
 .error-page__content .btn-box {
     margin-top: 23px;
-    margin-bottom: -10px;  
+    margin-bottom: -10px;
 }
 
 @media (min-width: 992px) {
     .error-page__content h3 {
         margin: 57px 0px 21px;
-    } 
+    }
     .error-page__content .btn-box {
         margin-top: 43px;
     }
-} 
+}
 
 
 
-/*** 
+/***
 =============================================
     Contact Page Info Css
 =============================================
@@ -1200,9 +1199,9 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
-    Contact box Start  
+    Contact box Start
 =============================================
 ***/
 
@@ -1344,9 +1343,9 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
-   faq-box Start  
+   faq-box Start
 =============================================
 ***/
 
@@ -1550,7 +1549,7 @@ pagination start
 }
 
 
-/*** 
+/***
 =============================================
     faq Banner Css
 =============================================
@@ -1618,7 +1617,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
     Wishlist Css
 =============================================
@@ -1703,7 +1702,7 @@ pagination start
     }
 }
 
-/*** 
+/***
 =============================================
     Compare Css
 =============================================
@@ -1841,7 +1840,7 @@ pagination start
     position: relative;
     display: flex;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 
     button {
         margin-right: 20px;
@@ -2079,7 +2078,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
    Cart area  style
 =============================================
@@ -2138,7 +2137,7 @@ pagination start
         max-width: 100px;
 
         img {
-            min-width: 100px; 
+            min-width: 100px;
             width: 100%;
             margin-right: 20px;
         }
@@ -2214,7 +2213,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
     Product Categories One Css
 =============================================
@@ -2286,7 +2285,7 @@ pagination start
     display: block;
     margin-top: 10px;
     margin-bottom: -5px;
-} 
+}
 
 .product-categories-one__inner .title h6 {
     color: var(--thm-black);
@@ -2296,7 +2295,7 @@ pagination start
     transition: .4s;
 }
 
-/*** 
+/***
 =============================================
     Start product-grid Css
 =============================================
@@ -2767,7 +2766,7 @@ pagination start
 }
 
 
-/*** 
+/***
 =============================================
    product-drescription Css
 =============================================
@@ -2782,7 +2781,7 @@ pagination start
     p {
         padding-top: 18px;
         font-size: 16px;
-        line-height: 1.75; 
+        line-height: 1.75;
     }
 }
 
@@ -2790,7 +2789,7 @@ pagination start
     li {
         padding-top: 10px;
         font-size: 16px;
-        line-height: 1.75; 
+        line-height: 1.75;
         &:first-child {
             padding-top: 10px;
         }
@@ -2911,13 +2910,13 @@ pagination start
     padding: 0px 15px 0px;
 }
 
-.recent-products { 
+.recent-products {
     .catagory-slider .arrow-back,
     .catagory-slider .arrow-next {
         top: 50%;
     }
 }
- 
+
 .product-grid-two.list {
     display: flex;
     align-items: center;
@@ -2990,7 +2989,7 @@ pagination start
         }
     }
 }
- 
+
 @media (min-width: 575px) {
     .product-grid-two.list {
         flex-direction: row;
@@ -3014,7 +3013,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
     Shop Details 1 Css
 =============================================
@@ -3079,7 +3078,7 @@ pagination start
 
 
 
-/*** 
+/***
 =============================================
     Shop Details Top Css
 =============================================

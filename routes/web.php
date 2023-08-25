@@ -75,6 +75,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Web'], function () {
         });
     });
 
+    Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
+        Route::post('/login', 'LoginController')->name('auth.login');
+        Route::post('/register', 'RegisterController')->name('auth.register');
+        Route::post('/logout', 'LogoutController')->name('auth.logout');
+    });
+
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/{page}', 'IndexController')->name('main.index')->where('page', '.*');
     });

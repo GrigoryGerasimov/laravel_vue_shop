@@ -22,8 +22,8 @@ class DestroyController extends Controller
             DB::beginTransaction();
 
             DestroyImageService::dispatch($article);
-            DestroyTagService::dispatch($article->id);
-            DestroyColorService::dispatch($article->id);
+            DestroyTagService::dispatch($article);
+            DestroyColorService::dispatch($article);
 
             $isDeleted = $article->delete();
 
